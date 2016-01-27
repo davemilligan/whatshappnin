@@ -1,0 +1,57 @@
+<!-- start admin links -->
+<% if session[:user_id] and User.find(session[:user_id]).level > 1 %>
+
+<%= insert_sidebar_heading("admin_links") %>
+
+<fieldset class="heading-link">
+	<h2>
+        <%= link_to "#{res("resources_lk") }",
+             { :action => "show_resources", :controller => 'admin'}
+                -%>
+	</h2>
+</fieldset>
+<fieldset class="heading-link">
+	<h2>
+        <%= link_to "#{res("patrons_lk") }",
+             { :action => "show_patrons", :controller => 'admin'}
+                -%>
+	</h2>
+</fieldset>
+<fieldset class="heading-link">
+	<h2>
+        <%= link_to "#{res("agents_lk") }",
+             { :action => "show_agents", :controller => 'admin'}
+                -%>
+	</h2>
+</fieldset>
+<fieldset class="heading-link">
+	<h2>
+        <%= link_to "#{res("admins_lk") }",
+             { :action => "show_admins", :controller => 'admin'}
+                -%>
+	</h2>
+</fieldset>
+<fieldset class="heading-link">
+	<h2>
+        <%= link_to "#{res("comments_lk") }",
+             { :action => "show_comments", :controller => 'admin'}
+                -%>
+	</h2>
+</fieldset>
+<fieldset class="heading-link">
+	<h2>
+        <%= link_to "#{res("quest_lk") }",
+             { :action => "show_questionaires", :controller => 'admin'}
+                -%>
+	</h2>
+</fieldset>
+<fieldset class="heading-link">
+	<h2>
+        <%= link_to "#{res("upgrades_lk") }",
+             { :action => "show_upgrade_requests", :controller => 'admin',
+        		:id => true }
+                -%>
+	</h2>
+</fieldset>
+<% end %>
+<!-- End admin links -->          

@@ -1,0 +1,14 @@
+	<div id='reply_form' style= 'display: none'>        
+         <% form_tag :controller => 'forum', :action => 'post_reply' do %>
+    		<a href ="#comment_form" onclick="javascript:hide_reply_form(); ">
+     			<%= res("hide_lk") %></a>
+            <%= text_area 'reply', 'content', :cols => 55, :rows => 10,
+                :value => res("insert_comment") %><p />
+            <%= submit_tag "Post Reply" %>
+            <%= hidden_field 'reply', "user_id", 
+                :value => session[:user_id] %>             
+            <%= hidden_field 'reply', 'reply' %>     
+        <% end %>
+	</div>
+
+

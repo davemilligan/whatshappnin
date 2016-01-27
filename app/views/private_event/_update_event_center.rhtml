@@ -1,0 +1,14 @@
+<div id='center' class='center' id='center'>
+<div class='center_col'>
+   	<% name = User.find_by_id(session[:user_id]).username + " " + @event.title %>
+   	<%= insert_heading("edit_event_legend", name) %>
+ 
+    <fieldset>
+       <% form_tag :action => 'update_event', :id => @event do %>
+         <%= render :partial => 'event_form' %>
+       <% end %>
+    </fieldset>
+    <%= render :partial => '/layouts/begins_date_picker' %>
+    <%= render :partial => '/layouts/ends_date_picker' %>
+</div>
+</div>

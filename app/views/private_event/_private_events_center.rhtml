@@ -1,0 +1,123 @@
+<!-- Start Agents Index Center -->
+<div id='center' class='center' id='center'>
+   	<% name = User.find_by_id(session[:user_id]).username %>
+   	<%= insert_heading("private_events_legend", name) %>
+
+    <% if @events %>    
+    <fieldset> 
+        <table class='search-table'>         
+            <tr>    
+                <th><%= res("edit_th") -%></th>
+                <th><%= res("view_th") -%></th>
+                <th><%= res("image_th") -%></th>
+                <th><%= res("event_th") -%></th>
+                <th><%= res("location_th") -%></th>
+                <th><%= res("venue_th") -%></th>
+                <th><%= res("begins_th") -%></th>
+                <th><%= res("ends_th") -%></th>
+            </tr>            
+            <% for e in @events %>
+                
+                <a href='<%= "/private_event/private_event/#{e.id}" -%>' >
+                <tr class="<%= cycle('list-line-odd', 'list-line-even') %>" > 
+                    <td>
+                       	<% if e.user_id == session[:user_id] %>   
+							<%= link_to res("edit_lk"),
+                                        { :action => 'update_event',
+                                             :controller => 'private_event',
+                                             :id => e } %>
+                    	<% end %>
+                    </td>                   
+                    <td>           
+                        <%= link_to res("view_lk"),
+                                :controller => 'private_event', 
+                                :action => 'private_event',
+                                :id => e.id %>
+                    </td>                   
+                    <td>           
+                        <%= link_to res("image_lk"),
+                                :controller => 'private_event', 
+                                :action => 'upload_image',
+                                :id => e.id %>
+                    </td> 
+                    <td>           
+                        <%= h truncate(e.title, 15) %>
+                    </td> 
+               
+                    <td>
+                        <%= h truncate(e.city, 15) -%>
+                    </td> 
+                    <td>
+                        <%= h e.venue %>
+                    </td>
+                    <td>
+                        <%= e.begins %>
+                    </td> 
+                    <td>
+                        <%= e.ends %>
+                    </td> 
+                </tr> 
+                </a>
+            <% end %>
+                                
+        </table>            
+    </fieldset>
+    <% end %>
+    <% if @completed_events %>
+    <fieldset class="heading">
+    <h2>
+        <%= "#{res("event_completed_list_legend")}" %>
+        <%= User.find(session[:user_id]).username %>
+    </h2>
+    </fieldset>
+    <fieldset> 
+        <table class='search-table'>         
+            <tr>
+                <th><%= res("view_th") -%></th>
+                <th><%= res("promo_th") -%></th>
+                <th><%= res("category_th") -%></th>
+                <th><%= res("location_th") -%></th>
+                <th><%= res("venue_th") -%></th>
+                <th><%= res("begins_th") -%></th>
+                <th><%= res("ends_th") -%></th>                         
+            </tr>
+            <% for e in @completed_events %>                
+                 <a href='<%= "/private_event/private_event/#{e.id}" -%>' >
+                <tr class="<%= cycle('list-line-odd', 'list-line-even') %>" > 
+                    <td>
+                        <%= link_to res("edit_lk"),
+                                        { :action => 'update_event',
+                                             :controller => 'private_event',
+                                             :id => e } %>
+                    </td>                   
+                    <td>           
+                        <%= link_to res("view_lk"),
+                                :controller => 'private_event', 
+                                :action => 'private_event',
+                                :id => e.id %>
+                    </td>                   
+                    <td>           
+                        <%= h truncate(e.title, 15) %>
+                    </td> 
+               
+                    <td>
+                        <%= h truncate(e.city, 15) -%>
+                    </td> 
+                    <td>
+                        <%= h e.venue %>
+                    </td>
+                    <td>
+                        <%= e.begins %>
+                    </td> 
+                    <td>
+                        <%= e.ends %>
+                    </td> 
+                </tr> 
+                </a>
+            <% end %>
+                                
+        </table>            
+    </fieldset> 
+    <% end %>   
+</div>  
+<!-- End Agents Index Center -->

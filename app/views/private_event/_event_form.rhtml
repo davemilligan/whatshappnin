@@ -1,0 +1,87 @@
+
+<%= error_messages_for 'event' %>
+<p>
+<label for="event_begins">
+    <%= res("begins_lb") %></label>
+    <%= text_field 'event', 'begins', :size => 18  %>
+        <img src="/javascripts/jscalendar/img.gif" id="e_bb" 
+        style="cursor: pointer; border: 1px solid red;" 
+        title="Start Date Selector"
+        onmouseover="this.style.background='red';" 
+        onmouseout="this.style.background=''" />
+        <%= res("date_format_YYYY_MM_DD") %><br />
+    
+<label for="event_ends">
+    <%= res("ends_lb") %></label>
+    <%= text_field 'event', 'ends', :size => 18  %>
+        <img src="/javascripts/jscalendar/img.gif" id="e_eb" 
+        style="cursor: pointer; border: 1px solid red;" 
+        title="End Date Selector"
+        onmouseover="this.style.background='red';" 
+        onmouseout="this.style.background=''" />
+        <%= res("date_format_YYYY_MM_DD") %><br />
+
+<label for="event_venue">
+    <%= res("venue_lb") %></label>
+    <%= text_field 'event', 'venue' , 
+	:tabindex => 1 -%><br />
+       
+<label for="event_title">
+    <%= res("title_lb") %></label>
+    <%= text_field 'event', 'title' , 
+	:tabindex => 2 -%><br />
+
+<label for="event_street">
+    <%= res("street_lb") %></label>
+    <%= text_field 'event', 'street' , 
+	:tabindex => 3 -%><br />
+
+<label for="event_city">
+    <%= res("city_lb") %></label>
+    <%= text_field 'event', 'city' , 
+	:tabindex => 4 -%><br />
+
+<label for="event_county">
+    <%= res("county_lb") %></label>
+    <%= text_field 'event', 'county' , 
+	:tabindex => 5 -%><br />
+    
+<label for= "event_country">
+    <%= res("Country") %></label>
+    <%= select('event', 'country', 
+        Country.find(:all, :order=> 'printable_name').collect\
+            {|c| [ c.printable_name, c.printable_name ] } , 
+        	{},{:tabindex => 6} ) %><br />
+    
+<label for="event_postcode">
+    <%= res("postcode_lb") %></label>
+    <%= text_field 'event', 'postcode' , 
+	:tabindex => 7 -%><br />  
+
+<label for="event_description">
+    <%= res("event_desc_lb") %></label>
+    <%= text_area 'event', 'description', :cols => 80, :rows => 10 , 
+	:tabindex => 8 -%><br />
+
+<%= hidden_field 'event', "user_id", 
+    		:value => "#{session[:user_id]}" %>
+
+<label for="">
+&nbsp;</label>
+<% if request.request_uri =~ /create/i %>
+    <%= submit_tag 'Create New Event >>>' , 
+	:tabindex => 9 -%><r />
+
+<% end %>
+<% if request.request_uri =~ /update/i %>
+    <%= submit_tag 'Update Event Details >>>' , 
+	:tabindex => 9 -%>
+
+<% end %>
+<input type= 'button' value=" Cancel " 
+           onclick = window.location.href="/private_event/events"; , 
+			tabindex = 10 >
+           <p> 
+<script type="text/javascript">
+	document.getElementById('event_venue').focus();
+</script>   

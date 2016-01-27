@@ -1,0 +1,8 @@
+dud:
+  id: 1
+  name: dud1
+  value: dud1
+rpc:
+  id: 2
+  name: resources_paginator_count
+  value: 1

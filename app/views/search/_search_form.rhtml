@@ -1,0 +1,15 @@
+<% form_for :search, 
+    :url => { :action => 'free_search' } do |form| %>
+    <label for= "search_country">
+    <%= res("Country") %></label>
+    <%= select('search', 'country', 
+        Country.find(:all, :order=> 'printable_name').collect\
+            {|c| [ c.printable_name, c.printable_name ] }) %><p />                   
+
+    <label for= "search_town_city">
+    <%= res("city_lb") %></label>
+    <%= form.text_field :city, :size => 20 -%>    
+     
+    <%= submit_tag "Search >>>" -%>  
+
+<% end %>

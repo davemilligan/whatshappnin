@@ -1,0 +1,15 @@
+<div class='center' id= "center">
+<div class='index_center_col'>
+	<%= insert_heading("new_resource", nil) %>
+	<fieldset>
+        <% form_tag :action => 'create' do %>
+            <%= render :partial => 'form' %>
+      	<label for="">&nbsp;</label>
+      	<%= submit_tag 'Create >>>', :tabindex => 3 %>
+        <input type= 'button' value=" Cancel " 
+          onclick = window.location.href="/admin/show_resources"; 
+          tabindex= '4'>
+      	<% end %>
+	</fieldset>
+</div>
+</div>

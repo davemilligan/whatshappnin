@@ -1,0 +1,11 @@
+<div id='center' class='center' id='center'>
+<div class='center_col'>
+    <%= insert_heading("venue_new_legend", nil) %>
+    
+    <fieldset class="reg_fieldset">
+       <% form_tag :action => 'create_venue', :id => @event do %>
+         <%= render :partial => 'venue_form' %>
+       <% end %>
+    </fieldset>
+</div>
+</div>

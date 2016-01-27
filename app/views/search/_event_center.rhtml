@@ -1,0 +1,82 @@
+<div id='center' class='center' id='center'>
+    <% @event = find_event(@event) %>
+    <% @venue = Venue.find(@event.venue_id) %>
+    <fieldset class="heading">
+    <h2>
+        <%= res("Venue") %>:  
+        <%= link_to Venue.find(@venue).title,
+                :controller => 'search', 
+                :action => 'venue',
+                :id => @venue %>&nbsp;
+        <%= "#{res("Event")}: " %>
+        <%= @event.title %>.
+        <a href ="#comment_display"><%= res("view_comments") %></a>
+    </h2>
+    </fieldset> 
+    <fieldset>
+        <span class='label'>
+            <%= "#{res("Event")}: " %>
+        </span>
+        <span class='venue_event_details'>  
+            <%= @event.title %>
+        </span>&nbsp;
+        <% if session[:user_id] and @event.user_id == session[:user_id] %>
+                <%= link_to res("event_edit_long_lk"),
+                                { :action => 'update_event',
+                                     :controller => 'agents',
+                                     :id => @event.id } %>
+        <% end %><br />
+        <span class='label'>
+            <%= "#{res("Category")}: " %>
+        </span>
+        <span class='venue_event_details'>
+            <%= @event.e_type %><br />
+        </span>
+        <span class='label'>
+            <%= "#{res("event_begins_lb")}: " %>
+        </span> 
+        <span class='venue_event_details'>
+            <%= @event.begins %><br /> 
+        </span>
+        <span class='label'>
+            <%= "#{res("event_ends_lb")}: " %>
+        </span> 
+        <span class='venue_event_details'>
+            <%= @event.ends %><br />
+        </span>
+        <span class='label'>
+            <%= "#{res("city_lb")}: " %>
+        </span>
+        <span class='venue_event_details'>  
+            <%= @event.city %><br />
+        </span>
+        <span class='label'>
+            <%= "#{res("Country")}: " %>
+        </span>
+        <span class='venue_event_details'>  
+            <%= @event.country %><br />
+        </span>
+        <span class='label'>
+            <%= "#{res("venue_postcode_lb")}: " %>
+        </span>
+        <span class='venue_event_details'>  
+            <%= @event.postcode %><p />
+        </span>
+        <span class='label'>
+            <%= "#{res("event_desc_lb")}: " %>
+        </span><br />
+        <span class='description'>          
+            <%= @event.description %><br />     
+        </span>
+        <%= render(:partial => "/layouts/comment_form") %>
+        <%= render(:partial => "/layouts/reply_form") %>
+    </fieldset>
+<a name="comment_display"></a>
+    <fieldset class="heading">
+    <h2>
+        <%= res("event_comments_left") %>
+    </h2>
+    </fieldset> 
+    <%= render(:partial => "/layouts/comment_display") %>
+</div>  
+<p />

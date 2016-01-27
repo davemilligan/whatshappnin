@@ -1,0 +1,11 @@
+<div class='center' id= "center">
+	<%= insert_heading("edit_quest", nil) %>
+
+	<fieldset class="reg_fieldset">
+		<% form_tag :action => 'update', :id => @questionaire do %>
+		  <%= render :partial => 'form' %>
+		  <label for="">&nbsp;</label>
+		  <%= submit_tag 'Update' %>		  
+		<% end %>
+	</fieldset>
+</div>

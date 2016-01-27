@@ -1,0 +1,115 @@
+<!-- Start Agents Index Center -->
+<div id='center' class='center' id='center'>
+<%= insert_heading("private_events_legend", User.find_by_id(session[:user_id]).username) %>
+
+    <% if @events %>    
+    <fieldset> 
+        <table class='search-table'>         
+            <tr>    
+                <th><%= res("edit_th") -%></th>
+                <th><%= res("view_th") -%></th>
+                <th><%= res("promo_th") -%></th>
+                <th><%= res("category_th") -%></th>
+                <th><%= res("location_th") -%></th>
+                <th><%= res("venue_th") -%></th>
+                <th><%= res("begins_th") -%></th>
+                <th><%= res("ends_th") -%></th>
+                <th><%= res("delete_th") -%></th>
+            </tr>            
+            <% for e in @events %>
+                
+                <a href='<%= "/search/event/#{e.id}" -%>' >
+                <tr class="<%= cycle('list-line-odd', 'list-line-even') %>" > 
+                    <td>
+                        <%= link_to res("edit_lk"),
+                                        { :action => 'update_event',
+                                             :controller => 'agents',
+                                             :id => e } %>
+                    </td>                   
+                    <td>           
+                        <%= link_to res("view_lk"),
+                                :controller => 'search', 
+                                :action => 'event',
+                                :id => e.id %>
+                    </td>                   
+                    <td>           
+                        <%= h truncate(e.title, 15) %>
+                    </td> 
+                    <td>
+                        <%= h truncate(e.e_type, 15) %>
+                    </td>                
+                    <td>
+                        <%= h truncate(e.city, 15) -%>
+                    </td> 
+                    <td>
+                        <%= h truncate(Venue.find(e.venue_id).title, 15) %>
+                    </td>
+                    <td>
+                        <%= e.begins %>
+                    </td> 
+                    <td>
+                        <%= e.ends %>
+                    </td> 
+                    <td>
+                        <%= link_to res("delete_lk"), 
+                                { :action => 'destroy_event',
+                                             :controller => 'agents',
+                                             :id => e },
+                                             :method => 'POST' %>
+                    </td>
+                </tr> 
+                </a>
+            <% end %>
+                                
+        </table>            
+    </fieldset>
+    <% end %>
+    <% if @completed_events %>
+<%= insert_heading("event_completed_list_legend", User.find_by_id(session[:user_id]).username) %>
+    <fieldset> 
+        <table class='search-table'>         
+            <tr>
+                <th><%= res("view_th") -%></th>
+                <th><%= res("promo_th") -%></th>
+                <th><%= res("category_th") -%></th>
+                <th><%= res("location_th") -%></th>
+                <th><%= res("venue_th") -%></th>
+                <th><%= res("begins_th") -%></th>
+                <th><%= res("ends_th") -%></th>                         
+            </tr>
+            <% for e in @completed_events %>                
+                <tr class="<%= cycle('list-line-odd', 'list-line-even') %>" > 
+                <a href='<%= "/search/event/#{e.id}" -%>' >    
+                    <td>           
+                        <%= link_to res("view_lk"),
+                                :controller => 'search', 
+                                :action => 'event',
+                                :id => e.id %>
+                    </td>                 
+                    <td>           
+                        <%= h truncate(e.title, 15) %>
+                    </td> 
+                    <td>
+                        <%= h truncate(e.e_type, 15) %>
+                    </td>                
+                    <td>
+                        <%= h truncate(e.city, 15) -%>
+                    </td> 
+                    <td>
+                        <%= h truncate(Venue.find(e.venue_id).title, 15) %>
+                    </td>
+                    <td>
+                        <%= e.begins %>
+                    </td> 
+                    <td>
+                        <%= e.ends %>
+                    </td>
+                </tr> 
+                </a>
+            <% end %>
+                                
+        </table>            
+    </fieldset> 
+    <% end %>   
+</div>  
+<!-- End Agents Index Center -->

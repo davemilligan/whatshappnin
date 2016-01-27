@@ -1,0 +1,121 @@
+<div id='main' class='main'>
+<%= render(:partial => "layouts/left", :object => nil) -%>
+    <% if @questions %>
+        <div id='center' class='center' id=center>
+			<%= insert_heading("Feedback", nil) %>   
+        <fieldset> 
+             <table class="search-table">           
+                <tr>
+                    <th><%= res("question_th") -%></th>
+                    <th><%= res("percent_th") -%></th>
+                </tr>                 
+                <tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q1 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q1')[0].count.to_d * 100 %>
+
+					</td>
+				</tr>
+                <tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q2 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q2')[0].count.to_d * 100 %>
+					</td>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q3 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q3')[0].count.to_d * 100 %>
+					</td>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q4 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q4')[0].count.to_d * 100 %>
+					</td>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q5 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q5')[0].count.to_d * 100 %>
+					</td>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q6 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q6')[0].count.to_d * 100 %>
+					</td>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q7 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q7')[0].count.to_d * 100 %>
+					</td>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q8 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q8')[0].count.to_d * 100 %>
+					</td>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q9 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q9')[0].count.to_d * 100 %>
+					</td>
+  				</tr>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td width='85%'>
+                    	<%= @questions.q10 %>
+                    </td> 
+					<td>
+						<%= get_percent_happy(@questions.id, 'q10')[0].count.to_d * 100 %>
+					</td>
+				</tr>
+                <tr>
+                    <th><%= res("comments_left") -%></th>
+                    <th><%= res("username_th") -%></th>
+                </tr>    
+ 				<% @feedback.each do |f| %>
+				<% if f.comments != '' %>
+				<tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+					<td width='85%'>
+						<%= f.comments %>&nbsp;
+					</td>
+					<td>
+						<%= link_to User.find(f.user_id).username,
+							{:controller => 'profile',
+							:action => 'view_profile',
+							:id => User.find(f.user_id).username},
+							:method => 'POST'%>
+					</td>
+				</tr>
+				<% end %>				
+				<% end %>
+				</table>
+    	</fieldset>
+    <% end %>
+    
+</div></div>

@@ -1,0 +1,86 @@
+<div id='main' class='main'>
+<%= render(:partial => "layouts/left", :object => nil) -%>
+        <% if @patrons %>
+        <div id='center' class='center' id=center>
+			<%= insert_heading("Patrons", nil) %>    
+        <fieldset> 
+            <table class='search-table'>            
+                <tr>
+                    <th><%= res("id_th") -%></th>
+                    <th><%= res("username_th") -%></th>
+                    <th><%= res("email_th") -%></th>
+                    <th><%= res("delete_th") -%></th>
+                    <th><%= res("deleted_at_th") -%></th>                
+                    <th><%= res("restore_th") -%></th>
+                    <th><%= res("restored_at_th") -%></th>
+                    <th><%= res("raise_th") -%></th>
+                </tr>
+                <% for p in @patrons %>
+                    <% if p.id != session[:user_id] %>
+                        <tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <% else %>
+                        <tr valign="top" bgcolor=yellow>                    
+                    <% end %>
+                    <a href ="#" 
+                      onclick='javascript:show_g("patron<%= p.id %>show")'; 
+                      onmouseout='javascript:hide_g("patron<%= p.id %>show")'; 
+                      return false;>
+                    <td>
+                        <%= p.id %>
+                    </td> 
+                    <td>
+                        <%= p.username %>
+                    </td> 
+                    <td>
+                        <%= p.email %>
+                    </td> 
+                    </a>                  
+                    <td>
+                    <% if !p.suspended %>
+                    <%= link_to '[X]', { :action => 'suspend_patron',
+                                             :controller => 'admin',
+                                             :id => p },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                     <td>
+                        <%= p.suspended_at %>
+                    </td>                
+                    <td>
+                    <% if p.suspended %>
+                    <%= link_to '[+]', { :action => 'restore_patron',
+                                             :controller => 'admin',
+                                             :id => p },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                     <td>
+                        <%= p.restored_at %>
+                    </td>               
+                    <td>
+                    <% if !p.suspended %>
+                    <%= link_to res("raise_status"), { :action => 'level_to_agent',
+                                             :controller => 'admin',
+                                             :id => p },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                    </tr>                   
+                    <tr class="debug" id="patron<%= p.id %>show" style='display: none'>
+                        <td colspan=8>                          
+                            <%= debug(p) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <tr valign="top" class="<%= cycle('list-line-odd',
+                                                  'list-line-even') %>">
+                <td colspan='8'>
+                    <%= pagination_links(@patrons_pages) %>     
+                </td> 
+    
+                </tr>                   
+            </table>            
+        </fieldset>
+        <% end %>
+</div></div>

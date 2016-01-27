@@ -1,0 +1,27 @@
+D/acts////
+/aggregations.rb/0/Initial aggregations.rb//
+D/associations////
+/associations.rb/0/Initial associations.rb//
+/attribute_methods.rb/0/Initial attribute_methods.rb//
+/base.rb/0/Initial base.rb//
+/calculations.rb/0/Initial calculations.rb//
+/callbacks.rb/0/Initial callbacks.rb//
+D/connection_adapters////
+/deprecated_associations.rb/0/*ations.rb//
+/deprecated_finders.rb/0/Initial deprecated_finders.rb//
+/fixtures.rb/0/Initial fixtures.rb//
+D/locking////
+/migration.rb/0/Initial migration.rb//
+/observer.rb/0/Initial observer.rb//
+/query_cache.rb/0/Initial query_cache.rb//
+/reflection.rb/0/Initial reflection.rb//
+/schema.rb/0/Initial schema.rb//
+/schema_dumper.rb/0/Initial schema_dumper.rb//
+/timestamp.rb/0/Initial timestamp.rb//
+/transactions.rb/0/Initial transactions.rb//
+/validations.rb/0/Initial validations.rb//
+D/vendor////
+/version.rb/0/Initial version.rb//
+D/wrappers////
+/wrappings.rb/0/Initial wrappings.rb//
+/xml_serialization.rb/0/Initial xml_serialization.rb//

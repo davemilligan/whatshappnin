@@ -1,0 +1,8 @@
+/association_collection.rb///////
+/association_proxy.rb///////
+/belongs_to_association.rb///////
+/belongs_to_polymorphic_association.rb///////
+/has_and_belongs_to_many_association.rb///////
+/has_many_association.rb///////
+/has_many_through_association.rb///////
+/has_one_association.rb///////

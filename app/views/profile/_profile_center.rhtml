@@ -1,0 +1,100 @@
+<div id='center' class='center' id='center'>
+<div class='index_center_col'>
+	<%= insert_heading("change_password_legend", nil) %>
+    <fieldset>
+        <% if flash[:password] -%>
+			<div id="notice"><%= flash[:password] %></div>
+		<% end -%>
+        <% form_tag :controller => 'profile', 
+                    :action => 'change_password' do %>  
+            &nbsp;<br />
+            <label for= "old_p">
+            <%= res("oldPassword_lb") %></label>
+            <%= password_field_tag :old_p,{},
+					:tabindex => '1' -%><br />
+            
+            <label for= "new_p">
+            <%= res("newPassword_lb") %></label>
+            <%= password_field_tag :new_p,{},
+					:tabindex => '2' -%><br />
+            
+            <label for= "new_p_conf">
+            <%= res("conf_newPassword_lb") %></label>
+             <%= password_field_tag :new_p_conf,{},
+					:tabindex => '3' -%><br />
+            <label for= "">
+            &nbsp;</label>
+            <%= submit_tag "Change Password >>>",
+					:tabindex => '4' -%>
+            
+            <input type= 'button' value=" Cancel " 
+                onclick = window.location.href="/";
+                tabindex = '5'><br />                    
+        <% end %>       
+    </fieldset>
+
+	<fieldset class="heading">
+	<h2>
+		<%= res("personal_details") %><br />
+		<%= res("created_at") %>:&nbsp;
+		<%= @user.created_at %><br />
+		<%= res("status") %>:&nbsp;
+		<%= @user.level %><br />		
+	</h2>
+	</fieldset>            
+    <fieldset>
+        <br />
+        <%= error_messages_for 'user' %>
+        <% form_tag :action => 'update', :id => @user do   %>
+        <label for= "user_username" >
+        <%= res("username_lb") %></label>
+        <%= text_field 'user', :username, :size => 40,
+				:tabindex => '0' -%><br />
+    
+        <label for= "user_fname" >
+        <%= res("fname_lb") %></label>
+        <%= text_field 'user', :fname, :size => 40,
+				:tabindex => '6' -%><br />
+
+        <label for= "user_lname" >
+        <%= res("lname_lb") %></label>
+        <%= text_field 'user', :lname, :size => 40,
+				:tabindex => '7' -%><br />
+
+        <label for= "user_email">
+        <%= res("email_lb") %></label>
+        <%= text_field 'user', :email, :size => 40 ,
+				:tabindex => '8' -%><br />
+        
+        <label for= "user_city">
+        <%= res("city_lb") %></label>
+        <%= text_field 'user', :city, :size => 40,
+				:tabindex => '9' -%><br />
+
+        <label for="user_country" class="pword">
+            <%= res("country_lb") %></label>
+            <%= select('user', \
+                'country', \
+                Country.find(:all, :order=> 'printable_name').collect \
+                {|c| [ c.printable_name, c.printable_name ] },
+                {},{:tabindex => '10'}) -%><br />
+
+        <label for= "user_postcode">
+        <%= res("postcode_lb") %></label>
+        <%= text_field 'user', :postcode, :size => 10,
+				:tabindex => '11' -%><br />
+
+        <label for= "">
+        &nbsp;</label>                                           
+        <%= submit_tag "Update >>>",
+				:tabindex => '12' -%>
+        <input type= 'button' value=" Cancel " 
+            onclick = window.location.href="/";
+			tabindex = '12' ><br />
+        <% end %>
+    </fieldset>
+</div>  
+</div>
+<script type="text/javascript">
+	document.getElementById('old_p').focus();
+</script>

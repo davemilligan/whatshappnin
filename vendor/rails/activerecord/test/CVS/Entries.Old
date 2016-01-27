@@ -1,0 +1,53 @@
+/aaa_create_tables_test.rb/0/*_test.rb//
+/abstract_unit.rb/0/Initial abstract_unit.rb//
+/active_schema_test_mysql.rb/0/*t_mysql.rb//
+/adapter_test.rb/0/Initial adapter_test.rb//
+/adapter_test_sqlserver.rb/0/*erver.rb//
+/aggregations_test.rb/0/Initial aggregations_test.rb//
+/all.sh/0/Initial all.sh//
+/ar_schema_test.rb/0/Initial ar_schema_test.rb//
+D/associations////
+/associations_test.rb/0/Initial associations_test.rb//
+/association_inheritance_reload.rb/0/*itance_reload.rb//
+/attribute_methods_test.rb/0/*_test.rb//
+/base_test.rb/0/Initial base_test.rb//
+/binary_test.rb/0/Initial binary_test.rb//
+/calculations_test.rb/0/Initial calculations_test.rb//
+/callbacks_test.rb/0/Initial callbacks_test.rb//
+/class_inheritable_attributes_test.rb/0/*_attributes_test.rb//
+/column_alias_test.rb/0/Initial column_alias_test.rb//
+D/connections////
+/connection_test_firebird.rb/0/*irebird.rb//
+/copy_table_sqlite.rb/0/Initial copy_table_sqlite.rb//
+/datatype_test_postgresql.rb/0/*tgresql.rb//
+/defaults_test.rb/0/Initial defaults_test.rb//
+/default_test_firebird.rb/0/*bird.rb//
+/deprecated_associations_test.rb/0/*ations_test.rb//
+/deprecated_finder_test.rb/0/*_test.rb//
+/empty_date_time_test.rb/0/*est.rb//
+/finder_test.rb/0/Initial finder_test.rb//
+D/fixtures////
+/fixtures_test.rb/0/Initial fixtures_test.rb//
+/inheritance_test.rb/0/Initial inheritance_test.rb//
+/lifecycle_test.rb/0/Initial lifecycle_test.rb//
+/locking_test.rb/0/Initial locking_test.rb//
+/method_scoping_test.rb/0/Initial method_scoping_test.rb//
+/migration_test.rb/0/Initial migration_test.rb//
+/migration_test_firebird.rb/0/*rebird.rb//
+/mixin_nested_set_test.rb/0/*test.rb//
+/mixin_test.rb/0/Initial mixin_test.rb//
+/modules_test.rb/0/Initial modules_test.rb//
+/multiple_db_test.rb/0/Initial multiple_db_test.rb//
+/pk_test.rb/0/Initial pk_test.rb//
+/readonly_test.rb/0/Initial readonly_test.rb//
+/reflection_test.rb/0/Initial reflection_test.rb//
+/schema_authorization_test_postgresql.rb/0/*ion_test_postgresql.rb//
+/schema_dumper_test.rb/0/Initial schema_dumper_test.rb//
+/schema_test_postgresql.rb/0/*resql.rb//
+/synonym_test_oracle.rb/0/Initial synonym_test_oracle.rb//
+/table_name_test_sqlserver.rb/0/*qlserver.rb//
+/threaded_connections_test.rb/0/*ons_test.rb//
+/transactions_test.rb/0/Initial transactions_test.rb//
+/unconnected_test.rb/0/Initial unconnected_test.rb//
+/validations_test.rb/0/Initial validations_test.rb//
+/xml_serialization_test.rb/0/Initial xml_serialization_test.rb//

@@ -1,0 +1,85 @@
+<div id='main' class='main'>
+<%= render(:partial => "layouts/left", :object => nil) -%>
+<div id='center' class='center' id=center>
+        <% if @admins %>
+		
+		<%= insert_heading("Administrators", nil) %>
+ 
+        <fieldset> 
+            <table class='search-table'>            
+                <tr>
+                    <th><%= res("id_th") -%></th>
+                    <th><%= res("username_th") -%></th>
+                    <th><%= res("email_th") -%></th>
+                    <th><%= res("delete_th") -%></th>
+                    <th><%= res("deleted_at_th") -%></th>                
+                    <th><%= res("restore_th") -%></th>
+                    <th><%= res("restored_at_th") -%></th>
+                    <th><%= res("lower_th") -%></th>
+                </tr>
+                <% for a in @admins %>
+                    <% if a.id != session[:user_id] %>
+                    <tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <% else %>
+                    <tr valign="top" bgcolor=yellow>                    
+                    <% end %>
+                    <a href ="#" onclick='javascript:show_g("admin<%= a.id %>show")'; onmouseout='javascript:hide_g("admin<%= a.id %>show")'; return false;>
+                    <td>
+                        <%= a.id %>
+                    </td> 
+                    <td>
+                        <%= a.username %>
+                    </td> 
+                    <td>
+                        <%= a.email %>
+                    </td> 
+                    </a>                  
+                    <td>
+                    <% if !a.suspended %>
+                    <%= link_to '[del]', { :action => 'suspend_admin',
+                                             :controller => 'admin',
+                                             :id => a },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                     <td>
+                        <%= a.suspended_at %>
+                    </td>                
+                    <td>
+                    <% if a.suspended %>
+                    <%= link_to '[res]', { :action => 'restore_admin',
+                                             :controller => 'admin',
+                                             :id => a },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                     <td>
+                        <%= a.restored_at %>
+                    </td>               
+                    <td>
+                    <% if !a.suspended and a.id != session[:user_id] %>
+                    <%= link_to res("lower_status_agent"), { :action => 'level_to_agent',
+                                             :controller => 'admin',
+                                             :id => a },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                    </tr>                   
+                    <tr class="debug" id="admin<%= a.id %>show" style='display: none'>
+                        <td colspan=8>                          
+                            <%= debug(a) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <tr valign="top" class="<%= cycle('list-line-odd',
+                                                  'list-line-even') %>">
+                <td colspan='8'>
+                    <%= pagination_links(@admins_pages) %>     
+                </td> 
+    
+                </tr>                   
+            </table>            
+        </fieldset>
+        <% end %>
+</div></div>

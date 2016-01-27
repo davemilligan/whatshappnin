@@ -1,0 +1,17 @@
+<div id='search_center' class='search_center' id='search_center'>
+<div class='center_col'>
+	<%= insert_heading("edit_event_legend", nil) %>
+ 
+    <fieldset>
+        <%= @venue.title %><br />
+        <%= @venue.city %><br />
+        <%= @venue.country %><br />
+        <%= @venue.postcode %><br />     
+        <% form_tag :action => 'update_event', :id => @event do %>
+        	<%= render :partial => 'event_form' %>
+        <% end %>
+    </fieldset>
+    <%= render :partial => '/layouts/begins_date_picker' %>
+    <%= render :partial => '/layouts/ends_date_picker' %>
+</div>
+</div>

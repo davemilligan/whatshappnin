@@ -1,0 +1,15 @@
+<% SALT = "NaC1" unless defined?(SALT) %>
+dave:
+  id:  1
+  username:  dave
+  salt:  <%= SALT %>
+  hashed_password:  <%= User.encrypted_password('secret', SALT) %>
+  email: dave.milligan@btinternet.com
+  level: 2
+  
+david:
+  id:  2
+  username:  david
+  salt:  <%= SALT %>
+  hashed_password:  <%= User.encrypted_password('secret', SALT) %>
+  email: dddd

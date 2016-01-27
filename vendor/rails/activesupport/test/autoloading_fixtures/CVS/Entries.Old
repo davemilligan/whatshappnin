@@ -1,0 +1,13 @@
+D/a////
+/application.rb/0/Initial application.rb//
+D/class_folder////
+/class_folder.rb/0/Initial class_folder.rb//
+/conflict.rb/0/Initial conflict.rb//
+/counting_loader.rb/0/Initial counting_loader.rb//
+/cross_site_dependency.rb/0/*ency.rb//
+/e.rb/0/Initial e.rb//
+D/module_folder////
+D/module_with_custom_const_missing////
+/multiple_constant_file.rb/0/*_file.rb//
+/raises_name_error.rb/0/Initial raises_name_error.rb//
+/raises_no_method_error.rb/0/Initial raises_no_method_error.rb//

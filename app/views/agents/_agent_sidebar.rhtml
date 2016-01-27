@@ -1,0 +1,19 @@
+<!-- Start agent links -->
+<% if session[:user_id] and User.find(session[:user_id]).level >= 1 %>
+	<%= insert_sidebar_heading("agents_lk") %>
+	<fieldset class="heading-link">
+		<h2>
+   			<%= link_to "#{res("my_venue_lk")}", 
+        		{ :action => 'index', 
+                  :controller => 'agents' } -%>
+		</h2>
+	</fieldset>
+	<fieldset class="heading-link">
+		<h2>
+   			<%= link_to "#{res("add_venue_lk")}", 
+        		{ :action => 'create_venue', 
+                  :controller => 'agents' } -%>
+		</h2>
+	</fieldset>
+<% end %>
+<!-- End agent links -->

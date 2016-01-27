@@ -1,0 +1,22 @@
+D/first_mailer////
+D/helpers////
+D/helper_mailer////
+D/path.with.dots////
+/raw_email/0/Initial raw_email//
+/raw_email10/0/Initial raw_email10//
+/raw_email11/0/Initial raw_email11//
+/raw_email12/0/Initial raw_email12//
+/raw_email13/0/Initial raw_email13//
+/raw_email2/0/Initial raw_email2//
+/raw_email3/0/Initial raw_email3//
+/raw_email4/0/Initial raw_email4//
+/raw_email5/0/Initial raw_email5//
+/raw_email6/0/Initial raw_email6//
+/raw_email7/0/Initial raw_email7//
+/raw_email8/0/Initial raw_email8//
+/raw_email9/0/Initial raw_email9//
+/raw_email_quoted_with_0d0a/0/*with_0d0a//
+/raw_email_with_partially_quoted_subject/0/*rtially_quoted_subject//
+D/second_mailer////
+D/templates////
+D/test_mailer////

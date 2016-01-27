@@ -1,0 +1,18 @@
+<!-- Start Top Ten Countries -->
+<% i = 0 %>
+<%= insert_sidebar_heading("t10") %>
+<% @co = find_countries %>
+<% @co.each do |c| %>
+<fieldset class="heading-link">
+	<h2>
+	<% if i < 10 %>	
+		<%= link_to truncate(c.country, 16), 
+				:controller => 'search', 
+				:action => 'country_category',
+				:country => c.country %><br />
+	<% end %>
+	<% i = 0 %>
+	</h2>
+</fieldset>
+<% end %>
+<!-- End Top Ten Countries -->

@@ -1,0 +1,41 @@
+<% if session[:user_id]  %>
+    <span id='comment_form_showlk'>
+	    <a href ="#comment_form" onclick="javascript:show_comment_form(); ">
+	     <%= res("post_comment") %>:
+	    </a>
+	</span><br />
+    <div id='comment_form' style= 'display: none'>        
+        <% form_tag :controller => 'forum', :action => 'post_comment' do %>
+    		<%= res("comment_title_lb") %>:
+            <%= text_field 'comment', 'title',:size => '30',
+            	:value => res("insert_title") %><br />
+            <%= text_area 'comment', 'content', :cols => 55, :rows => 10,
+                :value => res("insert_comment") %><p />
+                        <%= submit_tag "Post Comment" %>
+            <a href ="#comment_form" onclick="javascript:hide_comment_form(); ">
+     		<%= res("hide_lk") %></a>
+
+                <%= hidden_field 'comment', "user_id", 
+                    :value => session[:user_id] %>     
+      
+            <% if request.request_uri =~ /venue/i %>
+                <%= hidden_field 'comment', "subject", 
+                    :value => "venue" %>
+                <%= hidden_field 'comment', "subject_id", 
+                    :value => @venue.id %>
+            <% end %> 
+        	            
+            <% if request.request_uri =~ /event/i %>
+                <%= hidden_field 'comment', "subject", 
+                    :value => "event" %>
+                <%= hidden_field 'comment', "subject_id", 
+                    :value => @event.id %>
+            <% end %>     
+
+        <% end %>
+    </div>
+    
+<% else %>
+            <%= link_to "#{res("signin_to_post_lk")}", 
+                {:controller => 'welcome',:action => 'signin'} -%><br />
+<% end %>

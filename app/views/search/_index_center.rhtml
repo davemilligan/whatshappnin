@@ -1,0 +1,51 @@
+<div id='center' class='center' id='center' align='center'>
+
+	<!-- start of free search -->
+	<div class='index_center_col'>
+		<%= insert_heading("search_by_country_legend", nil) %>
+	  
+	    <fieldset>
+	        <br />
+	        <%= render(:partial => "search_form", :object => nil) -%>
+	    </fieldset>	
+	</div>
+	<!-- end of free search -->
+	<!-- start of table by country -->	
+	<div class='index_center_col'>    
+		<%= insert_heading("search_by_country_legend", nil) %>
+   
+	    <fieldset   width='200px'>
+	      <table class='search-table'>         
+	          <tr>
+	          	<th width='5%'><%= res("view_th") -%></th>
+	          	<th width='90%'><%= res("country_th") -%></th>
+	          	<th width='5%'><%= res("venues_th") -%></th>
+	          </tr>
+	          <!-- tabulated list of countries -->	
+	          <% find_all_countries.each do|c| %>
+		          <!-- hover link for table rows [will not show in Firefox] -->
+		          <a href=
+		          '<%= "/search/country_category/?country=#{c.country}" -%>' >
+		          <tr valign="top" 
+		          	  class="<%= cycle('list-line-odd', 'list-line-even') %>">	                
+			           <td>
+			                <%= link_to res("view_lk"),
+			                               { :action => 'country_category',
+			                                 :controller => 'search',
+			                                 :country => c.country } %>
+			           </td>   	                
+			           <td>
+			                <%= c.country %>
+			           </td> 
+			           <td>
+			           		<%= c.count %>  	
+			           </td>              
+		          </tr>
+		          </a> 
+	          <% end %>                   
+	      	  <!-- end tabulated list of countries -->
+	      </table>            
+	    </fieldset>
+	</div>
+<!-- end of table by country -->	
+</div>

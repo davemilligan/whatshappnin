@@ -1,0 +1,13 @@
+<div id='center' class='center' id='center'>
+<div class='index_center_col'>
+	<%= insert_heading(flash[:heading], nil) %>
+
+	<fieldset>
+		<p />
+		<%= flash[:message] %>
+		<p />	
+		<%= res("redirect_lk") %>
+		<%= link_to res("home_lk"), :action => 'home' %>
+	</fieldset>
+</div>
+</div>

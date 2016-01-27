@@ -1,0 +1,12 @@
+D/abstract////
+/abstract_adapter.rb/0/Initial abstract_adapter.rb//
+/db2_adapter.rb/0/Initial db2_adapter.rb//
+/firebird_adapter.rb/0/Initial firebird_adapter.rb//
+/frontbase_adapter.rb/0/Initial frontbase_adapter.rb//
+/mysql_adapter.rb/0/Initial mysql_adapter.rb//
+/openbase_adapter.rb/0/Initial openbase_adapter.rb//
+/oracle_adapter.rb/0/Initial oracle_adapter.rb//
+/postgresql_adapter.rb/0/Initial postgresql_adapter.rb//
+/sqlite_adapter.rb/0/Initial sqlite_adapter.rb//
+/sqlserver_adapter.rb/0/Initial sqlserver_adapter.rb//
+/sybase_adapter.rb/0/Initial sybase_adapter.rb//

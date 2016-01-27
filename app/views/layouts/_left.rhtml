@@ -1,0 +1,14 @@
+<div class="left" name='left' id='left'>
+    <div class="left_inner">
+        <%= render(:partial => "layouts/general_sidebar", :object => nil) %>
+        <% if session[:user_id] and User.find(session[:user_id]).level == 2 %>
+        <%= render (:partial => "admin/admin_sidebar", :object => nil) %>
+        <% else %>
+        <%= render(:partial => "search/country_sidebar", :object => nil) %>
+        <% end %>
+        <%= render(:partial => "agents/agent_sidebar", :object => nil) %>
+        <%= render(:partial => "layouts/private_sidebar", :object => nil) %>
+               
+        
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div id='search_center' class='search_center' id=search_center>
+    <!-- start of table by venues in given city and category -->
+    <% @venues = find_by_category_in_city(@city, @category) %>
+    <% name = @city + ":" %>
+    <%name = name + " Category: " + @category %>        
+	<%= insert_heading("Location", name) %>
+ 
+    <fieldset class='country-category-table'>
+        <table class='search-table'>         
+            <tr>
+                <th><%= res("view_th") -%></th>
+                <th><%= res("venue_th") -%></th>
+                <th><%= res("street_th") -%></th>
+                <th><%= res("city_th") -%></th>
+                <th width='10%'><%= res("events_th") -%></th>
+            </tr>       
+            <% @venues.each do|v| %>
+            <a href =<%= "/search/venue/#{v.id}" %> >
+            <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">    
+                <td>
+                    <%= link_to res("view_lk"), 
+                        :controller => 'search', 
+                        :action => 'venue',
+                        :id => v.id %>
+                </td>
+                <td>
+                    <%= v.title %>
+                </td>
+                <td>
+                    <%= v.street %>
+                </td>
+                <td>
+                    <%= v.city %>
+                </td>
+                <td>
+                    <%= count_current_events_by_venue_in_city(v.id.to_s, @category)[0].count %>
+                </td>
+            </tr>
+            </a>
+            <% end %> 
+        </table>
+    </fieldset>
+    <!-- end of table by venues in given city and category -->
+    <%= render(:partial => 'city_by_category') %>
+</div>

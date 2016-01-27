@@ -1,0 +1,19 @@
+/abstract_client.rb/0/Initial abstract_client.rb//
+/abstract_dispatcher.rb/0/Initial abstract_dispatcher.rb//
+/abstract_unit.rb/0/Initial abstract_unit.rb//
+D/apis////
+/api_test.rb/0/Initial api_test.rb//
+/base_test.rb/0/Initial base_test.rb//
+/casting_test.rb/0/Initial casting_test.rb//
+/client_soap_test.rb/0/Initial client_soap_test.rb//
+/client_xmlrpc_test.rb/0/Initial client_xmlrpc_test.rb//
+/container_test.rb/0/Initial container_test.rb//
+/dispatcher_action_controller_soap_test.rb/0/*_controller_soap_test.rb//
+/dispatcher_action_controller_xmlrpc_test.rb/0/*_controller_xmlrpc_test.rb//
+D/fixtures////
+/gencov/0/Initial gencov//
+/invocation_test.rb/0/Initial invocation_test.rb//
+/run/0/Initial run//
+/scaffolded_controller_test.rb/0/*ller_test.rb//
+/struct_test.rb/0/Initial struct_test.rb//
+/test_invoke_test.rb/0/Initial test_invoke_test.rb//

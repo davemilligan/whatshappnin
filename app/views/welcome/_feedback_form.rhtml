@@ -1,0 +1,80 @@
+<%= error_messages_for 'questionaire_answer' %>
+
+<!--[form:questionaire_answer]-->
+
+<span class='q_label' for="questionaire_answer_q1" size = 40>
+<%= @questionaire.q1 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q1",  @questionaire.q1?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q2" size = 40>
+<%= @questionaire.q2 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q2",  @questionaire.q2?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q3" size = 40>
+<%= @questionaire.q3 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q3",  @questionaire.q3?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q4" size = 40>
+<%= @questionaire.q4 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q4",  @questionaire.q4?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q5" size = 40>
+<%= @questionaire.q5 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q5",  @questionaire.q5?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q6" size = 40>
+<%= @questionaire.q6 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q6",  @questionaire.q6?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q7" size = 40>
+<%= @questionaire.q7 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q7",  @questionaire.q7?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q8" size = 40>
+<%= @questionaire.q8 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q8",  @questionaire.q8?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q9" size = 40>
+<%= @questionaire.q9 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q9",  @questionaire.q9?) %>
+</span><br/>
+
+<span class='q_label' for="questionaire_answer_q10" size = 40>
+<%= @questionaire.q10 %>
+</span>
+<span class='q_checkbox'>
+<%= check_box ("questionaire_answer_q10",  @questionaire.q10?) %>
+</span><p/>
+
+
+<b><%= res('quest_comments') %></b>
+<br/>
+<%= text_area 'questionaire_answer', 'comments', :cols => 80, :rows => 5  %></br>
+<!--[eoform:questionaire_answer]-->
+

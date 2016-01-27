@@ -1,0 +1,100 @@
+<!-- app/views/admin/show_agents.rhtml -->
+<div id='main' class='main'>
+<%= render(:partial => "layouts/left", :object => nil) -%>
+        <% if @agents %>
+        <div id='center' class='center' id=center>
+			<%= insert_heading("Agents", nil) %> 
+        <fieldset> 
+            <table class='search-table'>            
+                <tr>
+                    <th><%= res("id_th") -%></th>
+                    <th><%= res("username_th") -%></th>
+                    <th><%= res("email_th") -%></th>
+                    <th><%= res("delete_th") -%></th>
+                    <th><%= res("deleted_at_th") -%></th>                
+                    <th><%= res("restore_th") -%></th>
+                    <th><%= res("restored_at_th") -%></th>
+                    <th><%= res("lower_th") -%></th>
+                    <th><%= res("raise_th") -%></th>
+                </tr>
+                <% for a in @agents %>
+                    <% if a.id != session[:user_id] %>
+                        <tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <% else %>
+                        <tr valign="top" bgcolor=yellow>                    
+                    <% end %>
+                    <a href ="#" 
+                    	onclick='javascript:show_g("agent<%= a.id %>show")'; 
+                    	onmouseout='javascript:hide_g("agent<%= a.id %>show")'; 
+                    	return false;>
+                    <td>
+                        <%= a.id %>
+                    </td> 
+                    <td>
+                        <%= a.username %>
+                    </td> 
+                    <td>
+                        <%= a.email %>
+                    </td> 
+                    </a>                  
+                    <td>
+                    <% if !a.suspended %>
+                    <%= link_to '[X]', { :action => 'suspend_agent',
+                                             :controller => 'admin',
+                                             :id => a },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                     <td>
+                        <%= a.suspended_at %>
+                    </td>                
+                    <td>
+                    <% if a.suspended %>
+                    <%= link_to '[+]', { :action => 'restore_agent',
+                                             :controller => 'admin',
+                                             :id => a },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                     <td>
+                        <%= a.restored_at %>
+                    </td>               
+                    <td>
+                    <% if !a.suspended %>
+                    <%= link_to res("lower_status_patron"), 
+                    	{ :action => 'level_to_patron',
+                                             :controller => 'admin',
+                                             :id => a },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                    <td>
+                    <% if !a.suspended %>
+                    <%= link_to res("raise_status_admin"), 
+                    	{ :action => 'level_to_admin',
+                                             :controller => 'admin',
+                                             :id => a },                                             
+                                             :method => 'post' %>
+                    <% end %>
+                    </td>
+                    </tr>                   
+                    <tr class="debug" id="agent<%= a.id %>show" 
+                    	style='display: none'>
+                        <td colspan=9>                          
+                            <%= debug(a) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <tr valign="top" class="<%= cycle('list-line-odd',
+                                                  'list-line-even') %>">
+                <td colspan='9'>
+                    <%= pagination_links(@agents_pages) %>     
+                </td> 
+    
+                </tr>                   
+            </table>            
+        </fieldset>
+        <% end %>
+		</div>
+</div>

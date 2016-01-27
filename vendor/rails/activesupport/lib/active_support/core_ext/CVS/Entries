@@ -1,0 +1,39 @@
+D/array////
+D/bigdecimal////
+D/cgi////
+D/class////
+D/date////
+D/hash////
+D/integer////
+D/kernel////
+D/module////
+D/numeric////
+D/object////
+D/pathname////
+D/range////
+D/string////
+D/time////
+/array.rb/1.1/Mon Apr  2 14:50:24 2007//
+/bigdecimal.rb/1.1/Mon Apr  2 14:50:24 2007//
+/blank.rb/1.1/Mon Apr  2 14:50:24 2007//
+/cgi.rb/1.1/Mon Apr  2 14:50:24 2007//
+/class.rb/1.1/Mon Apr  2 14:50:24 2007//
+/date.rb/1.1/Mon Apr  2 14:50:24 2007//
+/date_time.rb/1.1/Mon Apr  2 14:50:24 2007//
+/enumerable.rb/1.1/Mon Apr  2 14:50:24 2007//
+/exception.rb/1.1/Mon Apr  2 14:50:24 2007//
+/hash.rb/1.1/Mon Apr  2 14:50:25 2007//
+/integer.rb/1.1/Mon Apr  2 14:50:25 2007//
+/kernel.rb/1.1/Mon Apr  2 14:50:25 2007//
+/load_error.rb/1.1/Mon Apr  2 14:50:25 2007//
+/logger.rb/1.1/Mon Apr  2 14:50:25 2007//
+/module.rb/1.1/Mon Apr  2 14:50:25 2007//
+/name_error.rb/1.1/Mon Apr  2 14:50:26 2007//
+/numeric.rb/1.1/Mon Apr  2 14:50:26 2007//
+/object.rb/1.1/Mon Apr  2 14:50:26 2007//
+/pathname.rb/1.1/Mon Apr  2 14:50:26 2007//
+/proc.rb/1.1/Mon Apr  2 14:50:26 2007//
+/range.rb/1.1/Mon Apr  2 14:50:26 2007//
+/string.rb/1.1/Mon Apr  2 14:50:26 2007//
+/symbol.rb/1.1/Mon Apr  2 14:50:27 2007//
+/time.rb/1.1/Mon Apr  2 14:50:27 2007//

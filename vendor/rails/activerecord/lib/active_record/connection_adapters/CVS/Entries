@@ -1,0 +1,12 @@
+D/abstract////
+/abstract_adapter.rb/1.1/Mon Apr  2 14:49:38 2007//
+/db2_adapter.rb/1.1/Mon Apr  2 14:49:38 2007//
+/firebird_adapter.rb/1.1/Mon Apr  2 14:49:38 2007//
+/frontbase_adapter.rb/1.1/Mon Apr  2 14:49:39 2007//
+/mysql_adapter.rb/1.1/Mon Apr  2 14:49:39 2007//
+/openbase_adapter.rb/1.1/Mon Apr  2 14:49:39 2007//
+/oracle_adapter.rb/1.1/Mon Apr  2 14:49:39 2007//
+/postgresql_adapter.rb/1.1/Mon Apr  2 14:49:39 2007//
+/sqlite_adapter.rb/1.1/Mon Apr  2 14:49:39 2007//
+/sqlserver_adapter.rb/1.1/Mon Apr  2 14:49:40 2007//
+/sybase_adapter.rb/1.1/Mon Apr  2 14:49:40 2007//

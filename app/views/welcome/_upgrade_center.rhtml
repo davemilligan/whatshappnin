@@ -1,0 +1,28 @@
+<!-- Start Register -->
+<div id='center' class='center' id='center'>
+<div class='index_center_col'>
+		<%= insert_heading("upgrade_legend", nil) %> 
+
+    <fieldset> 
+        &nbsp;<p>
+        <%= res("upgrade_msg") %>
+        <% form_tag do -%>
+            <%= error_messages_for 'req' %>
+            <label for= "username">
+            <%= res("telephone_lb") %></label>
+            <%= text_field_tag :telephone, {}, :tabindex => 1 -%>
+ 			<br />
+            <label for= "">
+            &nbsp;</label>
+            <%= submit_tag "Upgrade >>>", :tabindex => 2 -%>    
+            <input type= 'button' value=" Cancel " 
+                onclick = window.location.href="/"; 
+                tabindex= '3'>    
+        <% end -%>
+    </fieldset>
+</div>  
+</div>
+<!-- End Register -->
+<script type="text/javascript">
+	document.getElementById('telephone').focus();
+</script>

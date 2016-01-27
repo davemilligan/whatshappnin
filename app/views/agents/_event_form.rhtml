@@ -1,0 +1,66 @@
+
+<%= error_messages_for 'event' %>
+<p>        
+<label for="event_begins">
+    <%= res("begins_lb") %></label>
+    <%= text_field 'event', 'begins', :size => 18  %>
+        <img src="/javascripts/jscalendar/img.gif" id="e_bb" 
+        style="cursor: pointer; border: 1px solid red;" 
+        title="Start Date Selector"
+        onmouseover="this.style.background='red';" 
+        onmouseout="this.style.background=''" />
+        <%= res("date_format_YYYY_MM_DD") %><br />
+    
+<label for="event_ends">
+    <%= res("ends_lb") %></label>
+    <%= text_field 'event', 'ends', :size => 18  %>
+        <img src="/javascripts/jscalendar/img.gif" id="e_eb" 
+        style="cursor: pointer; border: 1px solid red;" 
+        title="End Date Selector"
+        onmouseover="this.style.background='red';" 
+        onmouseout="this.style.background=''" />
+        <%= res("date_format_YYYY_MM_DD") %><br />
+
+<label for="event_title">
+    <%= res("title_lb") %></label>
+    <%= text_field 'event', 'title', 
+	:tabindex => 1 -%><br />
+
+<%= hidden_field 'event', 'e_type', :value => @venue.v_type  %>
+<label for="event_description">
+    <%= res("event_desc_lb") %></label>
+    <%= text_area 'event', 'description', :cols => 80, :rows => 10 , 
+	:tabindex => 2 -%><br />
+
+    <%= hidden_field 'event', "venue_id", 
+            :value => "#{@venue.id}" %>
+    <%= hidden_field 'event', "street", 
+            :value => "#{@venue.street}" %>
+    <%= hidden_field 'event', "city", 
+            :value => "#{@venue.city}" %>
+    <%= hidden_field 'event', "county", 
+            :value => "#{@venue.county}" %>
+    <%= hidden_field 'event', "country", 
+            :value => "#{@venue.country}" %>
+    <%= hidden_field 'event', "postcode", 
+            :value => "#{@venue.postcode}" %>
+    <%= hidden_field 'event', "user_id", 
+    :value => "#{session[:user_id]}" %>
+<label for="">
+&nbsp;</label>
+<% if request.request_uri =~ /create/i %>
+    <%= submit_tag 'Create New Event >>>', 
+	:tabindex => 3 -%>
+
+<% end %>
+<% if request.request_uri =~ /update/i %>
+    <%= submit_tag 'Update Event Details >>>', 
+	:tabindex => 3 -%>
+
+<% end %>
+<input type= 'button' value=" Cancel " 
+           onclick = window.location.href="/agents/index"; 
+				tabindex = 4 -%><br />
+<script type="text/javascript">
+	document.getElementById('event_title').focus();
+</script>           

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+bunker:    
+    postcode: BT48 7JL
+    title: The Bunker
+    country: Ireland
+    county: Londonderry
+    id: "3"
+    city: Derry
+    description: This is the bar in the students union.
+    v_type: bar
+    street: Northland Road
+    user_id: "1"
+gallery:
+    postcode: BT47 6BW
+    title: The Gallery Bar
+    country: United Kingdom
+    county: Londonderry
+    id: "6"
+    city: Londonderry
+    description: Ok
+    v_type: bar
+    street: Dungiven Road
+    user_id: "1"

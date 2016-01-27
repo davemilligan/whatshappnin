@@ -1,0 +1,49 @@
+<!-- Start login -->
+<div id='center' class='center' id='center'>
+<div class='index_center_col'>
+    <%= insert_heading("signin_legend", nil) %>
+
+    <fieldset>
+        &nbsp;<p>
+        <% form_tag do -%>
+            <label for= "username">
+            <%= res("username_lb") %></label>
+            <%= text_field_tag :username, params[:username], 
+            				   :tabindex => 1 -%>
+            <%= link_to res("username_lk"), 
+                    {:action => 'forgot_username'}, 
+                    :tabindex => 4 -%>
+            <p />       
+            <label for= "password">
+            <%= res("password_lb") %></label>
+            <%= password_field_tag :password, params[:password], 
+            					   :tabindex => 2 -%>
+            <%= link_to res("password_lk"), 
+                    {:action => 'forgot_password'}, 
+                    :tabindex => 5 -%>
+            <p />   
+            <label for= "">
+            &nbsp;</label>
+            <%= submit_tag "Sign In >>>", :tabindex => 3 -%>    
+            <input type= 'button' value=" Cancel " 
+                onclick = window.location.href="/"; 
+                tabindex= '6'>    
+        <% end -%>
+    </fieldset>
+<!-- End login -->
+<!-- Start register --> 
+    <%= insert_heading("signin_legend", nil) %>
+
+    <fieldset class="reg_fieldset">
+            <p />
+                <b><%= res("new_reg_heading") -%>
+                <input type= 'button' value="Register >>>" 
+                    onclick = window.location.href="/welcome/register";
+                    tabindex= '7' ></b>
+    </fieldset>
+<!-- End register --> 
+<script type="text/javascript">
+	document.getElementById('username').focus();
+</script>
+</div>  
+</div>

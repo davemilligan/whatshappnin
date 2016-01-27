@@ -1,0 +1,63 @@
+<div id='center' class='center' id=center>
+    <!-- start of table by cities in given country and category -->
+    <!-- first find cities in given country and category -->
+    <% @cities = find_cities_by_category(@country.printable_name, @category) %>
+    <input type="hidden" name='country' value="<%= @country.printable_name %>" ></input>
+    <% name = @country.printable_name + ":" + res("Category") + " " + @category %>
+	<%= insert_heading("Location", name) %>
+    
+    <fieldset class='country-category-table'>
+        <table class='search-table'>         
+            <tr >
+            	<th width='5%'><%= res("view_th") -%></th>
+            	<th><%= res("city_th") -%></th>
+				<th width='10%'>&nbsp;</th>
+				<th width='10%'>&nbsp;</th>
+				<th width='10%'>&nbsp;</th>
+				<th width='10%'><%= res("category_th") -%></th>
+            	<th width='5%'><%= res("venues_th") -%></th>
+            </tr>
+			<!-- tabulate a list of cities returned from the search -->
+			<% @cities.each do|c| %>
+			<!-- make rows into links [not firefox] -->
+			<a href =
+			'<%= "/search/city_category/#{c.city}?country=#{@country.printable_name}&category=#{@category}" %>' >
+			<tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+				<td width='5%'>
+					<%= link_to res("view_lk"), 
+						:controller => 'search', 
+						:action => 'city_category',
+						:id => c.city, 
+						:category => @category,
+						:country => @country.printable_name %>				
+				</td>
+				<td>
+					<%= c.city %>		
+				</td>
+				<td  width='10%'>
+					&nbsp;		
+				</td>
+				<td  width='10%'>
+					&nbsp;		
+				</td>
+				<td  width='10%'>
+					&nbsp;		
+				</td>
+				<td  width='10%'>
+					<%= @category %>		
+				</td>				
+				<td width='5%'>
+					<!-- count available venues -->
+					<%= count_venues_by_cat_in_city(c.city, @country.printable_name, @category)[0].count %>		
+				</td>
+			</tr>
+			</a>
+			<% end %>
+		</table> 		
+    </fieldset>
+	<!-- end of table by cities in given country and category -->	
+	
+	
+	<%= render(:partial => 'country_by_category') %>
+	<%= render(:partial => 'map_small_country') %> 
+</div>

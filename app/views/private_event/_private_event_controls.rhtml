@@ -1,0 +1,16 @@
+<!-- Start Private Control Center -->
+<% if session[:user_id] and @event.user_id == session[:user_id] %>
+<%= error_messages_for 'event' %>	
+	<% form_for :pi, 
+			:url => { :action => 'invite' } do |form| %>
+			<%=  res("enter_email_address") %><br />
+			<%= form.text_field :email, :size => '32'  %>
+			<%= submit_tag 'send' %>
+			<%= form.hidden_field :private_event_id, :value => @event.id %>
+			<%= form.hidden_field :invited_at, :value => Time.now %>
+			<%= form.hidden_field :invited_by, :value => session[:user_id] %>			
+	<% end %>                         
+                       
+<% end %><p>
+<%= render(:partial => "guest_list") %>
+<!-- End Private Control Center -->

@@ -1,0 +1,17 @@
+<div id='center' class='center' id='center'>
+<div class='index_center'>
+	<%= insert_heading("feedback_legend", nil) %>
+	<fieldset class="heading">
+	<h2>
+		<%= res("feedback_legend") %>
+	</h2>
+	</fieldset> 
+    <fieldset class="reg_fieldset">
+    	<%= res("feedback_msg") %>
+		<% form_tag :action => 'submit_feedback' do %>
+		  <%= render :partial => 'feedback_form' %>		  
+		  <%= submit_tag "Submit" %>
+		<% end %>
+    </fieldset>
+</div>  
+</div> 

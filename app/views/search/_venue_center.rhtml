@@ -1,0 +1,123 @@
+<div id='center' class='center' id='center'>
+    <fieldset class="heading">
+    <h2>
+        <%= res("Venue") %>:  
+        <%= @venue.title %>&nbsp; 
+        <%= link_to res("view_more_in_category_lk"),
+                    :action => 'city_category',
+                    :id => @venue.city,
+                    :category => @venue.v_type,
+                    :country => @venue.country -%>&nbsp;
+        <a href ="#comment_display"><%= res("view_comments") %></a>
+    </h2>
+    </fieldset> 
+
+    <fieldset class="venue"> 
+        <div id='venue_left_col' class='venue_left_col' id='venue_left_col'>
+            <div id='venue_detail' class='venue_detail' id='venue_detail'>
+                    <% @events = find_events(@venue.id.to_s) %>
+                    <span class='label'>
+                    <%= "#{res("Venue")} " %>:
+                    </span>
+                    <span class='venue_event_details'>
+                    <%= @venue.title %> <br />
+                    </span>
+                    <span class='label'>
+                    <%= "#{res("Location")} " %>:
+                    </span>
+                    <span class='venue_event_details'>
+                    <%= @venue.street -%>,&nbsp;
+                    <%= @venue.city -%>&nbsp;
+                    </span>
+                    <a href="#map_top" onclick="javascript:show_g('map_shell');">
+                        <%= res("view_map") %><br />    
+                    </a>
+                    
+                    <span class='label'>
+                    <%= "#{res("Category")} " %>:
+                    </span>
+                    <span class='venue_event_details'>
+                    <%= @venue.v_type -%><p />          
+                    </span>
+                    <% if session[:user_id] and @venue.user_id == session[:user_id] %>
+                        <%= link_to res("venue_edit_long_lk"),
+                                        { :action => 'edit_venue',
+                                             :controller => 'agents',
+                                             :id => @venue.id } %>              
+                       <%= link_to res("venue_add_image_long_lk"),
+                                       :action => 'upload_image',
+                                       :id => @venue.id,
+                                       :controller => 'agents' %> 
+                    <% end %>       
+            </div>
+            
+            <table class='venue_listing'>
+            <% if @events.length > 0 %>
+            <tr>
+                <th>
+                    <%= "#{res("view_lk")}" %>:
+                </th>
+                <th>
+                    <%= "#{res("events_th")}" %>:
+                </th>
+                <th>
+                    <%= "#{res("begins_th")}" %>:
+                </th>            
+            </tr>            
+            <% @events.each do|e| %>
+            <a href='<%= "/search/event/#{e.id}" -%>' >
+            <tr  class="<%= cycle('list-line-odd', 'list-line-even') %>">
+                <td>
+                    <%= link_to res("view_lk"), 
+                        :controller => 'search', 
+                        :action => 'event',
+                        :id => e.id %>
+                </td>
+                <td>
+                    <%= e.title %>
+                </td>
+                <td>
+                    <%= e.begins %>
+                </td>
+            </tr>
+            </a>
+            <% end %>
+            <% end %>
+            <tr>
+                <td colspan='3'>
+                   <% if @venue.image -%>
+                        <img class='show_venue_img' src="<%= 
+                                url_for(:controller => 'search',
+                                        :action => 'get_venue_picture',
+                                        :id => @venue) %>" 
+                            width="320px" height="240px" border="0" />
+                                            
+                    <% end %>
+                </td>
+            </tr>
+            </table>    
+    		
+        </div>
+        
+        <div id='venue_right_col' class='venue_right_col' id=venue_right_col>
+            <div id='venue_description' class='venue_description' id='venue_description'>
+                    <%= @venue.description -%><br />
+            </div>
+            <a name="post_comment"></a><a name="post_reply"></a>           
+            <%= render(:partial => "/layouts/comment_form") %>       
+            <%= render(:partial => "/layouts/reply_form") %>
+        </div>
+    </fieldset>
+
+    
+        <fieldset class="heading">
+        <a name="comment_display"></a>
+        <h2>
+            <%= res("comments_left") %>
+        </h2>        
+        </fieldset> 
+        <%= render(:partial => "/layouts/comment_display") %>    
+
+    <input type="hidden" name='venue' value="<%= "#{@venue.postcode},#{@venue.street},#{@venue.county},#{@venue.city},#{@venue.country}" %>" ></input>
+    <%= render(:partial => 'map_large_venue') %>    
+</div>  

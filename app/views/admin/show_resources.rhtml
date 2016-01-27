@@ -1,0 +1,72 @@
+<div id='main' class='main'>
+<%= render(:partial => "layouts/left", :object => nil) -%>
+    <% if @resources %>
+        <div id='center' class='center' id=center>
+			<%= insert_heading("admin_resource_hdg", nil) %> 
+ 
+        <fieldset> 
+             <% edit = res("edit_lk") %>
+             <% delete = res("delete_lk") %>
+             <table class="search-table">           
+                <tr valign="top" class="<%= cycle('list-line-odd',
+                                                  'list-line-even') %>">
+                <td colspan='4'>
+                    <%= pagination_links(@resources_pages) %>
+                	<%= link_to res("delete_all"),
+                           {:action => 'destroy_all_resources',
+                            :controller => 'resources'}, 
+                            :confirm => \
+                            res("confirm_delete_all"), 
+                            :method => 'post' %>
+                	<%= link_to res("create_resource_lk"),
+                           {:action => 'new',
+                            :controller => 'resources'} ,
+                            :method => 'post'%>                           
+                </td> 
+    
+                </tr> 
+                <tr>
+                    <th><%= res("edit_th") -%></th>
+                    <th><%= res("name_th") -%></th>
+                    <th><%= res("value_th") -%></th>
+                    <th><%= res("delete_th") -%></th>
+                </tr>                 
+                <% for resou in @resources %>
+                <a href='<%= "/resources/edit/#{resou.id}" -%>', method='POST' >
+                    <tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <td><%= link_to edit,
+                                 { :action => 'edit',
+                                   :controller => 'resources',
+                                   :id => resou,
+                          :method => 'post'} %>
+                    </td> 
+                    <td>
+                        <%= h resou.name%>
+                    </td> 
+                    <td>
+                        <%= h truncate resou.value %>
+                    </td>
+                    <td><%= link_to delete, 
+                                 { :action => 'destroy_resource',
+                                   :controller => 'resources',
+                                   :id => resou }, 
+                                   :confirm => res("confirm_delete"), 
+                                   :method => 'post' %>
+                    </td> 
+                        
+                    </tr>
+                    </a>
+                <% end %>   
+                <tr valign="top" class="<%= cycle('list-line-odd',
+                                                  'list-line-even') %>">
+                <td colspan='4'>
+                    <%= pagination_links(@resources_pages) %>       
+                </td> 
+    
+                </tr> 
+            </table>
+        </fieldset>
+    <% end %>
+        </div>     
+</div>

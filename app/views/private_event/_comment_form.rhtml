@@ -1,0 +1,35 @@
+<div  class='private_comment_form'>
+<% if session[:user_id]  %>    
+    <span id='comment_form_showlk'>
+	    <a href ="#comment_form" onclick="javascript:show_comment_form(); ">
+	     <%= res("post_comment") %>:
+	    </a>
+	</span><br />
+    <div id='comment_form' style= 'display: none'>      
+        <% form_tag :controller => 'forum', :action => 'post_comment' do %>
+            <span class='private_comment_label'>
+            	<%= res("comment_title_lb") %>:
+            </span>
+            <%= text_field 'comment', 'title',:size => '30',
+            	:value => res("insert_title") %>
+			<br />
+            <%= text_area 'comment', 'content', :cols => 80, :rows => 5,
+                :value => res("insert_comment") %><br />
+            <%= submit_tag "Post Comment" %>
+            <a href ="#comment_form" onclick="javascript:hide_comment_form(); ">
+     		<%= res("hide_lk") %></a>
+            <%= hidden_field 'comment', "user_id", 
+              	:value => session[:user_id] %> 
+            <%= hidden_field 'comment', "subject", 
+                :value => "private_event" %>
+            <%= hidden_field 'comment', "subject_id", 
+                :value => @event.id %>
+        <% end %>
+    </div>
+    
+<% else %>
+            <%= link_to "#{res("signin_to_post_lk")}", 
+                {:controller => 'welcome',:action => 'signin'} -%><BR />
+
+<% end %>
+</div>

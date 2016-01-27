@@ -1,0 +1,99 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+Austria: 
+    name: AUSTRIA
+    iso3: AUT
+    iso: AT
+    id: "13"
+    printable_name: Austria
+    numcode: "40"
+Bahamas: 
+    name: BAHAMAS
+    iso3: BHS
+    iso: BS
+    id: "15"
+    printable_name: Bahamas
+    numcode: "44"
+Bangladesh: 
+    name: BANGLADESH
+    iso3: BGD
+    iso: BD
+    id: "17"
+    printable_name: Bangladesh
+    numcode: "50"
+Barbados: 
+    name: BARBADOS
+    iso3: BRB
+    iso: BB
+    id: "18"
+    printable_name: Barbados
+    numcode: "52"
+Canada: 
+    name: CANADA
+    iso3: CAN
+    iso: CA
+    id: "35"
+    printable_name: Canada
+    numcode: "124"
+France: 
+    name: FRANCE
+    iso3: FRA
+    iso: FR
+    id: "68"
+    printable_name: France
+    numcode: "250"
+Germany: 
+    name: GERMANY
+    iso3: DEU
+    iso: DE
+    id: "74"
+    printable_name: Germany
+    numcode: "276"
+Gibraltar: 
+    name: GIBRALTAR
+    iso3: GIB
+    iso: GI
+    id: "76"
+    printable_name: Gibraltar
+    numcode: "292"
+India: 
+    name: INDIA
+    iso3: IND
+    iso: IN
+    id: "92"
+    printable_name: India
+    numcode: "356"
+Ireland: 
+    name: IRELAND
+    iso3: IRL
+    iso: IE
+    id: "96"
+    printable_name: Ireland
+    numcode: "372"
+Italy: 
+    name: ITALY
+    iso3: ITA
+    iso: IT
+    id: "98"
+    printable_name: Italy
+    numcode: "380"
+Netherlands: 
+    name: NETHERLANDS
+    iso3: NLD
+    iso: NL
+    id: "142"
+    printable_name: Netherlands
+    numcode: "528"
+NZ: 
+    name: NEW ZEALAND
+    iso3: NZL
+    iso: NZ
+    id: "145"
+    printable_name: New Zealand
+    numcode: "554"
+Portugal: 
+    name: PORTUGAL
+    iso3: PRT
+    iso: PT
+    id: "163"
+    printable_name: Portugal
+    numcode: "620"

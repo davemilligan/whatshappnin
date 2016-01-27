@@ -1,0 +1,16 @@
+<!-- Start Private events Center -->
+<div id='center' class='center' id='center'>
+<div class='center_col'>
+   	<% name = User.find_by_id(session[:user_id]).username %>
+   	<%= insert_heading("new_event_legend", name) %>
+
+    <fieldset class="reg-heading"> 
+       <% form_tag :action => 'create_event', :id => @event do %>
+             <%= render :partial => 'event_form' %>
+       <% end %>
+    </fieldset>
+    <%= render :partial => 'layouts/begins_date_picker' %>
+    <%= render :partial => 'layouts/ends_date_picker' %>
+</div>
+</div>  
+<!-- End Private events Center -->

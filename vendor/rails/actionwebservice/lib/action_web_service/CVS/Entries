@@ -1,0 +1,18 @@
+D/client////
+D/container////
+D/dispatcher////
+D/protocol////
+D/support////
+D/templates////
+/api.rb/1.1/Mon Apr  2 14:49:12 2007//
+/base.rb/1.1/Mon Apr  2 14:49:12 2007//
+/casting.rb/1.1/Mon Apr  2 14:49:12 2007//
+/client.rb/1.1/Mon Apr  2 14:49:13 2007//
+/container.rb/1.1/Mon Apr  2 14:49:13 2007//
+/dispatcher.rb/1.1/Mon Apr  2 14:49:13 2007//
+/invocation.rb/1.1/Mon Apr  2 14:49:13 2007//
+/protocol.rb/1.1/Mon Apr  2 14:49:13 2007//
+/scaffolding.rb/1.1/Mon Apr  2 14:49:13 2007//
+/struct.rb/1.1/Mon Apr  2 14:49:13 2007//
+/test_invoke.rb/1.1/Mon Apr  2 14:49:14 2007//
+/version.rb/1.1/Mon Apr  2 14:49:14 2007//

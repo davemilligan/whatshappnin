@@ -1,0 +1,19 @@
+/abstract_unit.rb/0/Initial abstract_unit.rb//
+D/autoloading_fixtures////
+/caching_tools_test.rb/0/Initial caching_tools_test.rb//
+/class_inheritable_attributes_test.rb/0/*_attributes_test.rb//
+/clean_logger_test.rb/0/Initial clean_logger_test.rb//
+D/core_ext////
+D/dependencies////
+/dependencies_test.rb/0/Initial dependencies_test.rb//
+/deprecation_test.rb/0/Initial deprecation_test.rb//
+/inflector_test.rb/0/Initial inflector_test.rb//
+/json.rb/0/Initial json.rb//
+/multibyte_chars_test.rb/0/*est.rb//
+/multibyte_conformance.rb/0/*ance.rb//
+/multibyte_handler_test.rb/0/*_test.rb//
+/option_merger_test.rb/0/Initial option_merger_test.rb//
+/ordered_options_test.rb/0/*est.rb//
+/reloadable_test.rb/0/Initial reloadable_test.rb//
+/time_zone_test.rb/0/Initial time_zone_test.rb//
+/whiny_nil_test.rb/0/Initial whiny_nil_test.rb//

@@ -1,0 +1,47 @@
+<!-- app/views/layouts/_header_band.rhtml  -->
+<div class='header_packing '>&nbsp;</div> 
+<div class='header_band '>      
+    <%= render(:partial => "/layouts/language_bar", :object => nil) -%>     
+    <% if session[:user_id] %>
+    <!-- Start patron links  -->
+                        
+        <span class='logged-in-msg'>
+            <%= "#{res("logged_in_msg") } " \
+                        "#{User.find(session[:user_id]).username}:" -%>
+            
+            <%= link_to "#{res("signout_lk")}", 
+            { :action => 'signout', 
+                    :controller => 'welcome' } -%>
+                    
+            <%= link_to \
+                "#{res("edit_profile_lk")}",
+                    { :action => 'edit_profile', 
+                      :controller => 'profile'} -%>
+                                  
+        </span>            
+    <% else %>
+        <span class='logged-out-msg'>
+            <%= "#{res("not_logged_in_msg") }" -%>                               
+            <%= link_to \
+                "#{res("signin_lk")}", 
+                {:controller => 'welcome',:action => 'signin'} -%>
+                
+                <%= "#{res("or") }" -%>
+
+                <%= link_to \
+                "#{res("register_lk")}",
+                    { :controller => 'welcome', :action => 'register' } \
+                    -%>                                                                    
+        </span>    
+    <% end %>
+
+   <%= link_to "#{res("search_lk") }",
+       { :action => 'index', :controller => 'search'} -%>
+    
+   <%= link_to "#{res("home_lk") }",
+       { :action => :home }    -%>
+                      
+
+    
+      
+</div>

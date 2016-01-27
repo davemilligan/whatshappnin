@@ -1,0 +1,85 @@
+<!-- app/views/admin/show_questionaires.rhtml -->
+<div id='main' class='main'>
+<%= render(:partial => "layouts/left", :object => nil) -%>
+    <% if @quests %>
+        <div id='center' class='center' id=center>
+			<%= insert_heading("Questionaires", nil) %> 
+          
+        <fieldset> 
+             <table class="search-table">           
+                <tr valign="top" class="<%= cycle('list-line-odd',
+                                                  'list-line-even') %>">
+                <td colspan='3'>
+                    <%= pagination_links(@quests_pages) %>
+                    <%= link_to res("create_quest_lk"),
+                           {:action => 'new',
+                            :controller => 'questionaires'} ,
+                            :method => 'post'%>       
+                </td> 
+    
+                </tr> 
+                <tr>                    
+                    <th><%= res("edit_th") -%></th>
+                    <th><%= res("created_by_th") -%></th>
+                    <th><%= res("created_th") -%></th>
+                    <th><%= res("responses_th") -%></th>
+                    <th><%= res("feedback_th") -%></th>
+                    <th><%= res("activate_th") -%></th>                     
+                </tr>                 
+                <% for q in @quests %>
+                	<% if !q.activated %>
+                    <tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+                    <% else %>
+                    <tr valign="top" bgcolor=yellow>                    
+                    <% end %>
+ 
+                    
+                    <td><%= link_to res("edit_lk"),
+                                 { :action => 'edit',
+                                   :controller => 'questionaires',
+                                   :id => q,
+                          :method => 'post'} %>
+                    </td> 
+                    <a href ="#" 
+                    	onclick='javascript:show_g("q<%= q.id %>show")'; 
+                    	onmouseout='javascript:hide_g("q<%= q.id %>show")'; 
+                    	return false;>
+                    <td>
+                        <%= q.created_by %>
+                    </td> 
+                    <td>
+                        <%= q.created_at %>
+                    </td>
+                    <td>
+                        <%= q.responses %>
+                    </td>
+                    </a>
+                    <td>
+                        <% if q.responses.to_i > 0 %>
+                        <%= link_to "#{res("feedback_lk") }",
+             			 {  :action => "show_feedback", 
+                        	:controller => 'admin',
+                        	:id => q.id } -%>
+                        <% end %>
+                    </td>
+
+                    <td><%= link_to res("activate_lk"),
+                                 { :action => 'activate',
+                                   :controller => 'questionaires',
+                                   :id => q,
+                          :method => 'post'} %>
+                    </td>    
+                    </tr>                    
+                    <tr class="debug" id="q<%= q.id %>show" 
+                    	style='display: none'>
+	                <td colspan='6'>
+	                    <%= debug(q) %>       
+	                </td>	    
+	                </tr>
+                <% end %> 
+            </table>
+        </fieldset>
+    <% end %>
+    
+</div></div>

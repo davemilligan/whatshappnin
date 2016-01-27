@@ -1,0 +1,13 @@
+<%= error_messages_for 'agent' %>
+
+<!--[form:agent]-->
+<p><label for="agent_username">Username</label><br/>
+<%= text_field 'agent', 'username'  %></p>
+
+<p><label for="agent_hashed_password">Hashed password</label><br/>
+<%= password_field 'agent', 'hashed_password'  %></p>
+
+<p><label for="agent_salt">Salt</label><br/>
+<%= text_field 'agent', 'salt'  %></p>
+<!--[eoform:agent]-->
+

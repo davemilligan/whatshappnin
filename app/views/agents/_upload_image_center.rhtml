@@ -1,0 +1,44 @@
+<div id='search_center' class='search_center' id='search_center'>
+<div class='index_center_col'>
+	<%= insert_heading("edit_image_legend", nil) %>
+
+    <fieldset> 
+            <%= error_messages_for 'picture' %>
+            
+            <% form_for(:picture, 
+                        :url => {:action => 'upload_image'},
+                        :html => { :multipart => true }) do|form| %>
+                <%= res("upload_image12_msg") %><p>
+				<p>
+				<label for="">
+				&nbsp;</label>                 
+                <%= form.file_field 'uploaded_picture', :size => 20 %>
+				<p>
+				<label for="">
+				&nbsp;</label>               
+                <%= submit_tag 'Upload >>>' -%>
+                <input type= 'button' value=" Cancel " 
+                onclick = window.location.href="/"; />
+                <%= form.hidden_field 'owner_id', :value => @venue.id  -%>
+            <% end %><p>
+            
+            <% if @picture_available -%>
+                <%= res("image_msg") %><p>
+                <a class="thumbnail" href="" onclick="this.href='javascript:void(0)';this.disabled=1">
+                    <img class="image" src="<%= 
+                            url_for(:controller => 'search',
+                            		:action => 'get_venue_picture', 
+                                    :id => @picture.owner_id) %>" 
+                            width="160px" height="120px" border="0" />
+                    <span>
+                        <img class="image" src="<%= 
+                            url_for(:controller => 'search',
+                            		:action => 'get_venue_picture', 
+                                    :id => @picture.owner_id) %>" 
+                            border="0" /><br />
+                    </span>
+                </a>        
+            <% end %>           
+    </fieldset>
+</div>
+</div>

@@ -1,0 +1,18 @@
+<span class='guest-list'>          
+  <span class='private_guest_label'>
+     <%= "#{res("reg_guest_list_lb")}:&nbsp;" %>
+ </span><br />               
+    <% @reg_guest_list.each do|g| %>
+    	<i><%= link_to g, 
+    			{:action => 'view_profile',
+    			:controller => 'profile',
+    			:id => g},
+    			:method => 'POST'%>&nbsp;</i>
+    <% end %><br />     
+  <span class='private_guest_label'>
+     <%= "#{res("unreg_guest_list_lb")}:&nbsp;" %>
+ </span><br />               
+    <% @unreg_guest_list.each do|g| %>
+    	<i><%= g %>&nbsp;</i>
+    <% end %><br />
+</span>

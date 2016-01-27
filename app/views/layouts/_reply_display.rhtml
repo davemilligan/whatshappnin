@@ -1,0 +1,21 @@
+<% if @replies %>	
+	<% for reply in @replies %>					
+		<% if reply.reply.to_s == comment.id.to_s %>
+			<div class="reply"  id="reply" name="reply<%= reply.id %>">
+				<%= User.find(reply.user_id).username %>&nbsp;				
+				<%= res("reply_created_by") -%>:
+				<%= reply.created_at %><br />
+				<%= reply.content %>
+				<% if user_owns(comment.subject, comment.subject_id) %>
+					<%= link_to "#{res("delete_lk")}", 
+			                {:controller => 'forum',
+							 :action => 'destroy_reply',
+							 :id => reply.id},
+							 :method => 'post' -%>
+	
+				<% end %>
+			</div><p>
+		<% end %>
+	<% end %>
+
+<% end %>

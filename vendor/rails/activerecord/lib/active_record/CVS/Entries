@@ -1,0 +1,27 @@
+D/acts////
+D/associations////
+D/connection_adapters////
+D/locking////
+D/vendor////
+D/wrappers////
+/aggregations.rb/1.1/Mon Apr  2 14:49:42 2007//
+/associations.rb/1.1/Mon Apr  2 14:49:43 2007//
+/attribute_methods.rb/1.1/Mon Apr  2 14:49:43 2007//
+/base.rb/1.1/Mon Apr  2 14:49:43 2007//
+/calculations.rb/1.1/Mon Apr  2 14:49:43 2007//
+/callbacks.rb/1.1/Mon Apr  2 14:49:43 2007//
+/deprecated_associations.rb/1.1/Mon Apr  2 14:49:44 2007//
+/deprecated_finders.rb/1.1/Mon Apr  2 14:49:44 2007//
+/fixtures.rb/1.1/Mon Apr  2 14:49:45 2007//
+/migration.rb/1.1/Mon Apr  2 14:49:45 2007//
+/observer.rb/1.1/Mon Apr  2 14:49:45 2007//
+/query_cache.rb/1.1/Mon Apr  2 14:49:45 2007//
+/reflection.rb/1.1/Mon Apr  2 14:49:45 2007//
+/schema.rb/1.1/Mon Apr  2 14:49:45 2007//
+/schema_dumper.rb/1.1/Mon Apr  2 14:49:46 2007//
+/timestamp.rb/1.1/Mon Apr  2 14:49:46 2007//
+/transactions.rb/1.1/Mon Apr  2 14:49:47 2007//
+/validations.rb/1.1/Mon Apr  2 14:49:47 2007//
+/version.rb/1.1/Mon Apr  2 14:49:47 2007//
+/wrappings.rb/1.1/Mon Apr  2 14:49:47 2007//
+/xml_serialization.rb/1.1/Mon Apr  2 14:49:48 2007//

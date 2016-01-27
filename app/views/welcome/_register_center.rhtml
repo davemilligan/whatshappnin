@@ -1,0 +1,41 @@
+<!-- Start Register -->
+<div id='center' class='center' id='center'>
+<div class='index_center_col'>
+		<%= insert_heading("registration_legend", nil) %>
+
+    <fieldset> 
+        &nbsp;<p>
+        <%= error_messages_for 'user' %>
+            <% form_for :user, :url => { :action => :register } do |form| %>
+                <label for= "user_username">
+                <%= res("username_lb") %></label>
+                <%= form.text_field :username, :size => 40,
+   							:tabindex => '1' -%>              
+                <p />       
+        
+                <label for= "user_email">
+                <%= res("email_lb") %></label>
+                <%= form.text_field :email, :size => 40,
+   							:tabindex => '2' -%>              
+                <p />           
+        
+                <label for= "user_email_confirmation">
+                <%= res("conf_email_lb") %></label>
+                <%= form.text_field :email_confirmation, :size => 40,
+   							:tabindex => '3' -%>                     
+                <p /> 
+                <label for= "">
+                &nbsp;</label>
+                <%= submit_tag "Register >>>",
+   							:tabindex => '4' -%>
+                <input type= 'button' value=" Cancel " 
+                    onclick = window.location.href="/";
+                    tabindex = '5' -%>
+        <% end %>
+    </fieldset>
+</div>  
+</div>
+<!-- End Register -->
+<script type="text/javascript">
+	document.getElementById('user[username]').focus();
+</script>

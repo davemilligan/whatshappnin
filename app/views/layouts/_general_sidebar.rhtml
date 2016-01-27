@@ -1,0 +1,69 @@
+<!-- Start left column containg links -->
+<%= insert_sidebar_heading("links") %>
+<!-- Start General links -->
+	<fieldset class="heading-link">
+		<h2>
+       <%= link_to "#{res("home_lk") }", { :action => :home }  -%>
+		</h2>
+	</fieldset>
+          
+       <% if session[:user_id] %>    
+	<fieldset class="heading-link">
+		<h2>          
+              <%= link_to "#{res("signout_lk")}", 
+              { :action => 'signout', 
+                      :controller => 'welcome' } -%><br />
+		</h2>
+	</fieldset>
+	<fieldset class="heading-link">
+		<h2>  
+    		  <%= link_to "#{res("feedback_lk") }",
+    			  { :controller => 'welcome', :action => 'feedback'}  -%> 
+		</h2>
+	</fieldset>
+	<fieldset class="heading-link">
+		<h2>                        
+              <%= link_to \
+                  "#{res("edit_profile_lk")}",
+                      { :action => 'edit_profile', 
+                        :controller => 'profile'} -%><br />             
+		</h2>
+	</fieldset>
+       <% else %>
+	<fieldset class="heading-link">
+		<h2>   
+              <%= link_to "#{res("signin_lk")}", 
+                  {:controller => 'welcome',:action => 'signin'} -%>
+           
+		</h2>
+	</fieldset>
+       <% end %>
+	<fieldset class="heading-link">
+		<h2>  
+    		  <%= link_to "#{res("search_lk") }",
+    			  { :action => 'index', :controller => 'search'}  -%> 
+		</h2>
+	</fieldset>
+	<fieldset class="heading-link">
+		<h2>  
+    		  <%= link_to "#{res("contact_lk") }",
+    			  { :controller => 'welcome', :action => 'contact'}  -%> 
+		</h2>
+	</fieldset>
+	<fieldset class="heading-link">
+		<h2>  
+			  <%= link_to "#{res("register_lk")}",
+	              { :controller => 'welcome', :action => 'register' } -%>  
+		</h2>
+	</fieldset>
+<% if session[:user_id] and User.find(session[:user_id]).level == 0 %>
+	<fieldset class="heading-link">
+		<h2>  
+			  <%= link_to "#{res("upgrade_lk")}",
+	              { :controller => 'welcome', :action => 'upgrade' } -%>  
+		</h2>
+	</fieldset>
+<% end %>
+
+<!-- End General links -->
+<!-- Start left column containg links -->          

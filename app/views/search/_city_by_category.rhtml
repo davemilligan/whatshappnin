@@ -1,0 +1,38 @@
+
+	<!-- start of table by category in given country -->
+    <input type="hidden" name='city' value="<%= @city %>" ></input>
+    <input type="hidden" name='country' value="<%= @country.printable_name %>" ></input>
+	<%= insert_heading("Location", @city) %>
+
+	<fieldset class="category-table"  id="category-table">
+		<% @categories = VenueType.find(:all) %>
+        <table>         
+            <tr>
+            	<th><%= res("view_th") -%></th>
+            	<th><%= res("category_th") -%></th>
+            	<th width='10%'><%= res("venues_th") -%></th>
+            </tr>
+			<% @categories.each do|c| %>
+				<a href ='<%= "/search/city_category/#{@city}?country=#{@country.printable_name}&category=#{c.english}" %>'>
+				<tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+					<td>
+						<%= link_to res("view_lk"),
+							:action => 'city_category',
+							:id => @city,
+							:category => c.english,
+							:country => @country.printable_name -%>
+
+					</td>
+					<td>
+						<%= c.english %>
+					</td>
+					<td>
+						<%= count_venues_by_city(@city, c.english)[0].count %>
+					</td>
+				</tr>
+				</a>
+			<% end %>
+		</table>
+    </fieldset>
+    <!-- end of table by category in given country -->
+	<%= render(:partial => 'map_small_city') %>

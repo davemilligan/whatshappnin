@@ -1,0 +1,11 @@
+<div id='center' class='center' id='center'>
+	<%= insert_heading("edit_venue_legend", nil) %>
+
+    <fieldset>
+        <% form_for :venue,
+                    :url => {:action => 'update_venue'} do|form| -%>
+          &nbsp;<p>
+          <%= render :partial => 'venue_form' -%>
+        <% end %>
+    </fieldset>
+</div>

@@ -1,0 +1,59 @@
+<%= error_messages_for 'venue' %>
+<p>
+<label for="venue_title"><%= res("title_lb") %></label>
+<%= text_field 'venue', 'title', 
+				:tabindex => 1 -%><br />
+
+<label for="venue_street"><%= res("street_lb") %></label>
+    <%= text_field 'venue', 'street', 
+	:tabindex => 2 -%><br />
+
+<label for="venue_city">
+    <%= res("city_lb") %></label>
+    <%= text_field 'venue', 'city', 
+	:tabindex => 3 -%><br />
+
+<label for="venue_county">
+    <%= res("county_lb") %></label>
+    <%= text_field 'venue', 'county', 
+	:tabindex => 4 -%><br />
+
+<label for="venue_country">
+    <%= res("country_lb") %></label>
+    <%= select('venue', \
+        'country', \
+        Country.find(:all, :order=> 'printable_name').collect \
+        {|c| [ c.printable_name, c.printable_name ] }, 
+		{},{:tabindex => 5}) -%><br />
+
+<label for="venue_postcode">
+    <%= res("postcode_lb") %></label>
+    <%= text_field 'venue', 'postcode', 
+	:tabindex => 6 -%><br />
+
+<label for="venue_v_type">
+	<%= res("venue_type_lb") %></label>
+    <%= select('venue', \
+        'v_type', \
+        VenueType.find(:all).collect \
+        {|c| [ c.english, c.english ] }, 
+		{}, {:tabindex => 7}) -%><br />
+
+<label for="venue_description"><%= res("description_lb") %></label>
+    <%= text_area 'venue', 'description', :cols => 60, :rows => 10 , 
+	:tabindex => 8 -%><br />
+
+<label for="">
+&nbsp;</label>
+<%= submit_tag 'Commit Venue Details >>>', 
+	:tabindex => 9 -%>
+
+<input type= 'button' value=" Cancel " 
+    onclick = window.location.href="/welcome/home"; 
+	tabindex = 10 >
+
+<%= hidden_field 'venue', 'id', :value => @venue.id %>
+<%= hidden_field 'venue', 'user_id', :value => session[:user_id] %><br />
+<script type="text/javascript">
+	document.getElementById('venue_title').focus();
+</script>

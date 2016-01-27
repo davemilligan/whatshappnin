@@ -1,0 +1,76 @@
+<div id='main' class='main'>
+<%= render(:partial => "layouts/left", :object => nil) -%>
+        
+        <div id='center' class='center' id=center>
+			              
+                <% if @pending %>
+                	<%= insert_heading("pending_upgrade_requests_legend", nil) %> 
+                	<%= link_to "#{res("refused_upgrades_lk") }",
+             			{ :action => "show_upgrade_requests", 
+                	  	:controller => 'admin',
+        			  	:id => false } -%>
+                <% else %>
+                	<%= insert_heading("refused_upgrade_requests_legend", nil) %> 
+                	<%= link_to "#{res("pending_upgrades_lk") }",
+             			{ :action => "show_upgrade_requests", 
+                	  	:controller => 'admin',
+        			  	:id => true } -%>                
+                <% end %>
+
+        <fieldset> 
+            <table class='search-table'>            
+                <tr>
+                    <th><%= res("username_th") -%></th>
+                    <th><%= res("email_th") -%></th>
+                    <th><%= res("telephone_th") -%></th>
+                    <th><%= res("created_at_th") -%></th>                
+                    <th><%= res("upgrade_th") -%></th>
+                    <th><%= res("deny_th") -%></th>
+                </tr>
+                <% if @reqs %>
+                <% for r in @reqs %>
+                    <% user = User.find(r.user_id) %>
+                    <tr valign="top" class="<%= cycle('list-line-odd',
+                                                      'list-line-even') %>">
+
+                    <a href ="#" 
+                     onclick='javascript:show_g("req<%= r.id %>show")'; 
+                     onmouseout='javascript:hide_g("req<%= r.id %>show")'; 
+                     return false;>
+                    <td>
+                        <%= user.username %>
+                    </td> 
+                    <td>
+                        <%= user.email %>
+                    </td> 
+                    <td>
+                        <%= user.telephone %>
+                    </td>                     
+                    <td>
+                        <%= r.created_at.to_s(:short) %>
+                    </td> 
+                    </a>
+                    <td>
+                    <%= link_to res("raise_status"), { :action => 'upgrade_to_agent',
+                                             :controller => 'admin',
+                                             :id => r.user_id},                                             
+                                             :method => 'post' %>
+                    </td>
+                     <td>
+                    <%= link_to res("deny_upgrade"), { :action => 'deny_upgrade',
+                                             :controller => 'admin',
+                                             :id => r.user_id },                                             
+                                             :method => 'post' %>
+                    </td>                
+				</tr>
+                <tr class="debug" id="req<%= r.id %>show" style='display: none'>
+                        <td colspan=7>                          
+                            <%= debug(r) %>
+                        </td>
+                    </tr>
+                <% end %>
+                <% end %>                                   
+            </table>            
+        </fieldset>
+        
+</div></div>

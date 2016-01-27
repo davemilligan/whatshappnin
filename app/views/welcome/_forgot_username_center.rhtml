@@ -1,0 +1,27 @@
+<!--  Start forgot username -->
+<div id='center' class='center' id='center'>
+<div class='index_center_col'>
+	<%= insert_heading("forgot_username_legend", nil) %> 
+	<fieldset class="reg_fieldset">
+         <%= res("forgot_username_msg") %> 
+         <% form_tag do %>           
+             <label for= "email">
+             <%= res("email_lb") %></label>
+             <%= text_field_tag :email, params[:email], :size => 30,
+			   				:tabindex => '1' -%>              
+             <p>
+             <label for= "">
+             &nbsp;</label>            
+             <%= submit_tag "Continue >>>", :tabindex => '2' %>
+             <input type= 'button' value=" Cancel " 
+                     onclick = window.location.href="/";
+                     tabindex = '3'>                           
+         <% end %>
+        
+    </fieldset>
+</div>  
+</div> 
+<!--  End forgot username -->
+<script type="text/javascript">
+	document.getElementById('email').focus();
+</script>

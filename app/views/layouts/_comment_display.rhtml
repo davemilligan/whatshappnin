@@ -1,0 +1,72 @@
+<% if @comments %>
+	<% for comment in @comments %>	
+	<fieldset class="comment"  id="comment" name="comment<%= comment.id %>">
+		<h2>
+			<%= res("comment_created_by") -%>:&nbsp;
+			<%= User.find(comment.user_id).username %>.&nbsp;	
+			<%= res("comment_created_date") %>:&nbsp;
+			<%= comment.created_at.to_s(:short) %>.		
+			<% if comment.updated == true %>
+				<span class='updated'>
+					<%= res("comment_updated") + ": " + 
+						distance_of_time_in_words_to_now\
+						(comment.updated_at, include_seconds = false) + 
+						" " +res("ago") %>
+				</span>
+			<% end %>
+			<br />	
+			<b><i><%= comment.title %></i></b>
+			<span class="show_lk" id="comment<%= comment.id %>showlk">
+			<a href ="#" onclick='javascript:show_comment(<%= comment.id %>); return false;'>
+			<%= res("show_comment") -%></a>
+			</span>
+			<span class="hide_lk" id="comment<%= comment.id %>hidelk" style='display: none'>
+			<a href ="#" onclick='javascript:hide_comment(<%= comment.id %>); return false;'>
+				<%= res("hide_comment") -%>
+			</a>
+			</span>
+			<% if session[:user_id]  %>
+				<a href ="#reply_form" onclick="javascript:show_reply_form(<%= comment.id %>); ">
+				<%= res("post_reply") %>
+				</a>			
+			<% else %>
+			    <%= link_to "#{res("signin_to_reply_lk")}", 
+			        {:controller => 'welcome',:action => 'signin'} -%>
+			<% end %>
+			
+				
+			
+			<% req = request.request_uri %>
+			<% if user_owns(comment.subject, comment.subject_id) %>
+				<%= link_to "#{res("delete_lk")}", 
+		                {:controller => 'forum',
+						 :action => 'destroy_comment',
+						 :id => comment.id,
+						 :uri => req },
+						 :method => 'post' -%>
+
+			<% end %>
+		</h2>
+		<div id="comment<%= comment.id %>show" style='display: none'>
+			<a name="comment<%= comment.id %>show"></a>
+			<br />
+			<p class='com'>
+			<%= comment.content %>			
+			<p>
+			<%= render(:partial => "/layouts/reply_display", :locals=>{:comment=>comment}) -%>
+			</p>
+		</div>
+		<% if comment.updated == true %>
+			<script>
+				show_comment(<%= comment.id %>);
+			</script>
+		<% end %>
+	</fieldset>	
+	<% end %>
+<% else %>
+	<fieldset>
+	<div id='search_header' class='search_header' id='search_header'>
+		<%= res("no_comments_left") %>
+	</div>
+	</fieldset>
+<% end %>

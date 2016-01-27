@@ -1,0 +1,17 @@
+<div id='center' class='center' id='center'>
+<div class='index_center_col'>
+	<%= insert_heading("personal_profile", @user.username) %>
+          
+    <fieldset>
+        <br />
+        <%= res("status") %>:&nbsp;
+		<%= @user.level %><br />	
+        <%= res("registered_since") %>:&nbsp;
+		<%= @user.created_at %><br />
+        <%= @user.email %><br />
+        <%= @user.fname %>&nbsp;<%= @user.lname %><br />
+        <%= @user.city %><br />
+        <%= @user.country %><br />
+    </fieldset>
+</div>  
+</div>

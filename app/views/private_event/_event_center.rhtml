@@ -1,0 +1,73 @@
+<div id='center' class='center' id='center'>
+           
+        <%= insert_heading("private_event", @event.venue) %>
+        <fieldset>
+             <div class='private_event_left'>
+                <a href ="#comment_display"><%= res("view_comments") %></a><br/>             
+                <span class='private_event_label'>
+                    <%= "#{res("Event")}: " %>
+                </span>
+                <span class='venue_event_details'>  
+                    <%= @event.title %>
+                </span><br />
+                <span class='private_event_label'>
+                    <%= "#{res("event_begins_lb")}: " %>
+                </span> 
+                <span class='venue_event_details'>
+                    <%= @event.begins %><br /> 
+                </span>
+                <span class='private_event_label'>
+                    <%= "#{res("event_ends_lb")}: " %>
+                </span> 
+                <span class='venue_event_details'>
+                    <%= @event.ends %><br />
+                </span>
+                <span class='private_event_label'>
+                    <%= "#{res("street_lb")}: " %>
+                </span>
+                <span class='venue_event_details'>  
+                    <%= @event.street %><br />
+                </span>
+                <span class='private_event_label'>
+                    <%= "#{res("city_lb")}: " %>
+                </span>
+                <span class='venue_event_details'>  
+                    <%= @event.city %><br />
+                </span>
+                <span class='private_event_label'>
+                    <%= "#{res("Country")}: " %>
+                </span>
+                <span class='venue_event_details'>  
+                    <%= @event.country %><br />
+                </span>
+            <%= render(:partial => 'private_event_controls') %>
+            </div>
+            <div class='private_event_right'>
+                <% if @event.image -%>
+                     <img class='show_venue_img' src="<%= 
+                             url_for(:controller => 'search',
+                                     :action => 'get_venue_picture',
+                                     :id => @event) %>" 
+                         width="320px" height="240px" border="0" />
+                                         
+                 <% end %>              
+            </div>
+            <div class='clr'></div>
+
+            <span class='private_description_label'>          
+                <%= "#{res("event_desc_lb")}: " %><br />
+            </span>
+            <div class='private-description'> 
+                <%= @event.description %><br />     
+            </div>
+            
+            <%= render(:partial => "comment_form") %>
+            <%= render(:partial => "reply_form") %>
+        </fieldset>
+    <a name="comment_display"></a>
+    <%= insert_heading("event_comments_left", nil) %>        
+
+    <%= render(:partial => "/layouts/comment_display") %>
+
+</div>  
+<p />

@@ -1,0 +1,72 @@
+
+<!-- Template for the header band used throughout the application  -->
+<div class='header_band '>  	
+   	
+    <% if session[:agent_id] %>
+	<!-- Start agent links  -->  
+            <%= render(:partial => "/layouts/language_bar", :object => nil) -%>
+            <span class='logged-in-msg'>
+                <%= "#{res("agent_logged_in_msg") } " \
+                             "#{Agent.find(session[:agent_id]).fname} "\
+                            "#{Agent.find(session[:agent_id]).lname} "-%>
+                
+                <%= link_to "#{res("signout_lk")}", 
+                { :action => 'logout', 
+                        :controller => 'agents' } -%>
+                        
+                <%= link_to \
+                    "#{res("edit_profile_lk")}",
+                        { :action => 'update_profile', 
+                          :controller => 'agents'} -%>          
+            </span>
+
+            <%= link_to "#{res("home_lk") }",
+                { :action => :index, :controller => 'agents'}
+            -%>
+    <!-- End agent links  -->  
+    <% else %>
+            <%= render(:partial => "/layouts/language_bar", :object => nil) -%>
+    <!-- Start patron links  -->
+            <% if session[:user_id] %>                
+                <span class='logged-in-msg'>
+                    <%= "#{res("logged_in_msg") } " \
+                                "#{Patron.find(session[:user_id]).username}:" -%>
+                    
+                    <%= link_to "#{res("signout_lk")}", 
+                    { :action => 'logout', 
+                            :controller => 'login' } -%>
+                            
+                    <%= link_to \
+                        "#{res("edit_profile_lk")}",
+                            { :action => 'index', 
+                              :controller => 'patron_profile'} -%>
+                                          
+                </span>            
+            <% else %>
+                <span class='logged-out-msg'>
+                    <%= "#{res("not_logged_in_msg") }" -%>                               
+                    <%= link_to \
+                        "#{res("patron_signin_lk")}", 
+                        {:controller => 'login',:action => 'login'} -%>
+                        
+                        <%= "#{res("or") }" -%>
+                        
+                    <% if !session[:user_id] -%>
+                        <%= link_to \
+                        "#{res("register_lk")}",
+                            { :controller => 'login', :action => 'register' } \
+                            -%>                                                                    
+                    <% end %>
+                    </span>    
+            <% end %>
+
+            <%= link_to "#{res("search_lk") }",
+                { :action => 'index', :controller => 'search'} -%>
+             
+            <%= link_to "#{res("home_lk") }",
+                { :action => :home }    -%>
+                      
+    <!-- End patron links  -->
+    <% end %>
+       
+</div>

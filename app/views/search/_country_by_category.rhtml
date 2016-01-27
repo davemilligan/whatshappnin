@@ -1,0 +1,40 @@
+	<!-- start of table by category in given country -->
+      
+	<%= insert_heading("Location", @country.printable_name) %>
+	
+	<fieldset class='category-table'>	
+		<!-- get a list of available categories for compiling lists-->
+		<% @categories = VenueType.find(:all) %>
+        <table>         
+            <tr>
+            	<th><%= res("view_th") -%></th>
+            	<th><%= res("category_th") -%></th>
+            	<th width='10%'><%= res("venues_th") -%></th>
+            </tr>
+			<!-- for each category show number of available venues -->
+			<% @categories.each do|cat| %>
+				<!-- clickable rows [not firefox]  -->
+				<a href=
+				'<%= "/search/country_category/#{cat.english}?country=#{@country.printable_name}" -%>' >
+				<tr valign="top" class="<%= cycle('list-line-odd',
+	                                                 'list-line-even') %>">
+					<td>
+						<%= link_to res("view_lk"),
+							:action => 'country_category',
+							:id => cat.english,
+							:country => @country.printable_name -%>
+
+					</td>
+					<td>
+						<%= cat.english %>
+					</td>
+					<td>
+						<%= count_venues_by_co(@country.printable_name, cat.english)[0].count %>
+					</td>
+				</tr>
+				</a>
+			<% end %>
+		</table>
+    </fieldset>
+    <!-- end of table by category in given country -->
+  

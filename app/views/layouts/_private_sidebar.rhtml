@@ -1,0 +1,20 @@
+<!-- Start private links -->
+<%= insert_sidebar_heading("private") %>
+<fieldset class="heading-link">
+	<h2>
+ <%= link_to \
+     "#{res("private_events_lk")}",
+         { :action => 'events', 
+           :controller => 'private_event'} -%>
+	</h2>
+</fieldset>
+<fieldset class="heading-link">
+	<h2>
+ <%= link_to \
+     "#{res("new_event_lk")}",
+         { :action => 'create_event', 
+           :controller => 'private_event'} -%>
+	</h2>
+</fieldset>
+
+<!-- End private links -->

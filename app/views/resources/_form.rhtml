@@ -1,0 +1,13 @@
+<%= error_messages_for 'resource' %>
+<p>&nbsp;
+<!--[form:resource]-->
+<p><label for="r_name">Name</label>
+<%= text_field 'r', 'name', :size => 40, :tabindex => 1 %></p>
+
+<p><label for="r_value">Value</label>
+<%= text_area 'r', 'value', :cols => 35, :rows => 10, :tabindex => 2 %>
+<script type="text/javascript">
+	document.getElementById('r_name').focus();
+</script>
+<!--[eoform:resource]-->
+
